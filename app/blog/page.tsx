@@ -35,7 +35,50 @@ export default function BlogPage() {
           </h1>
         </section>
 
-        
+        {/* ====== FEATURED BLOG ====== */}
+        <section className="w-full max-w-7xl mx-auto my-16">
+          {/* Blog Card */}
+          <Link href="/blog/details">
+            <div className="grid md:grid-cols-2 bg-white border border-[#A6A6A6] cursor-pointer hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
+              {/* Left Content */}
+              <div className="p-8 flex flex-col justify-between">
+                <div>
+                  <p className="text-sm text-[#2530FF] font-medium mb-2">
+                    Explore
+                  </p>
+                  <h1 className="text-3xl font-bold leading-snug mb-3">
+                    A Guide to Affordable Yacht <br /> Hire Options in Dubai
+                  </h1>
+                  <p className="text-md font-medium">
+                    A deep dive into how you can enjoy yacht life without <br />{" "}
+                    breaking the bank.
+                  </p>
+                </div>
+                <p className="text-xs font-medium mt-4">March 17, 2025</p>
+              </div>
+
+              {/* Right Image */}
+              <div className="relative w-full h-68">
+                <Image
+                  src="/assets/blog-card.jpg"
+                  alt="Yacht in Dubai"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </Link>
+
+        </section>
+        {/* Newsletter + Social Section */}
+
+        <NewsLetter />
+
+        {/* ====== TOP READS ====== */}
+        <TopReads />
+
+        {/* ====== Book ====== */}
+        <Book />
       </main>
       <Footer />
     </>

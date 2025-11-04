@@ -5,49 +5,49 @@ import Image from "next/image";
 const yachts = [
   {
     name: "Azimut Grande 35",
-    capacity: "Upto8",
-    baths: "2baths",
-    beds: "4Beds",
+    capacity: "Upto 8",
+    baths: "2 baths",
+    beds: "4 Beds",
     price: "AED 15,000/day",
     image: "/assets/fleet1.jpg",
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto9",
-    baths: "3baths",
-    beds: "5Beds",
+    capacity: "Upto 9",
+    baths: "3 baths",
+    beds: "5 Beds",
     price: "AED 18,500/day",
     image: "/assets/fleet2.jpg",
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto12",
-    baths: "4baths",
-    beds: "6Beds",
+    capacity: "Upto 12",
+    baths: "4 baths",
+    beds: "6 Beds",
     price: "AED 22,000/day",
     image: "/assets/fleet1.jpg",
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto9",
-    baths: "2baths",
-    beds: "4Beds",
+    capacity: "Upto 9",
+    baths: "2 baths",
+    beds: "4 Beds",
     price: "AED 17,000/day",
     image: "/assets/fleet2.jpg",
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto10",
-    baths: "3baths",
-    beds: "5Beds",
+    capacity: "Upto 10",
+    baths: "3 baths",
+    beds: "5 Beds",
     price: "AED 19,500/day",
     image: "/assets/fleet1.jpg",
   },
   {
     name: "Azimut Grande 35",
-    capacity: "Upto14",
-    baths: "5baths",
-    beds: "7Beds",
+    capacity: "Upto 14",
+    baths: "5 baths",
+    beds: "7 Beds",
     price: "AED 30,000/day",
     image: "/assets/fleet2.jpg",
   },
@@ -62,7 +62,7 @@ export default function FleetSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-4 md:px-4 lg:px-10">
         {yachts.map((yacht, index) => (
-          <div key={index} className="relative overflow-hidden shadow-lg group w-full aspect-[319.07/158.74]  lg:aspect-[442/158.74]">
+          <div key={index} className="relative overflow-hidden shadow-lg group w-full aspect-[319.07/158.74]  lg:aspect-[442/200]">
             {/* Yacht Image */}
             <Image
               src={yacht.image}
@@ -143,7 +143,7 @@ export default function FleetSection() {
                 </div>
 
                 {/* Price Box (tight fit, no padding) */}
-                <div className="bg-[#002BFF] text-white text-sm text-left font-semibold px-2 py-[8px] mb-[-20]">
+                <div className="bg-[#002BFF] text-white text-sm font-semibold h-[55px] flex items-center justify-center px-2 mb-[-20]">
                   {yacht.price}
                 </div>
               </div>
@@ -154,7 +154,7 @@ export default function FleetSection() {
 
       {/* CTA Button */}
       <div className="w-full flex justify-center">
-        <button className="hidden md:block mt-8 px-8 py-3 border border-[#A3A3A3] text-[#A3A3A3] hover:bg-black hover:text-white transition-all">
+        <button className="hidden md:block mt-8 px-8 py-3 border border-[#A3A3A3] text-[#000] hover:bg-black hover:text-white transition-all">
           View Full Fleet
         </button>
       </div>

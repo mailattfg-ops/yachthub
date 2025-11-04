@@ -61,7 +61,7 @@ export default function CharterTypes() {
               >
                 {type.title2}
               </h3>
-              <p className="text-sm  text-white/90 max-w-[550px]">
+              <p className="text-sm  text-white/90 max-w-[550px] font-normal">
                 {type.desc}
               </p>
             </div>
