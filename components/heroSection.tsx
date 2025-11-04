@@ -8,6 +8,7 @@ import {
   PopoverContent,
 } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
+import { Mouse } from "lucide-react";
 
 export default function HeroSection() {
   const [where, setWhere] = useState("");
@@ -15,8 +16,9 @@ export default function HeroSection() {
   const [howMany, setHowMany] = useState("");
   const [yachtType, setYachtType] = useState("");
 
+
   return (
-    <section className="relative w-full h-[1111px] flex flex-col justify-between text-white overflow-hidden">
+    <section className="relative w-full h-[101vh] pt-20 flex flex-col justify-center md:justify-between text-white overflow-hidden">
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -27,66 +29,44 @@ export default function HeroSection() {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/40" ></div>
 
       {/* ======= TOP LEFT HEADING ======= */}
-      <div className="relative z-10 text-left px-12 pt-40">
-        <h1 className="font-[Absans] text-[60px] leading-[100%] tracking-[-0.07em] font-normal max-w-[646px]">
-          <span
+      <div className="relative z-10 text-left pb-8 px-6 md:px-12 md:mt-30 lg:mt-0">
+        <h1
+          className="font-[Absans] grid text-center text-[33px] md:text-[66px] letterSpacing-[-6] md:text-left lineHeight-[2] "
+        >
+          <span className=""
             style={{
               fontFamily: "var(--font-awesome-serif)",
-              fontWeight: 400,
-              fontStyle: "normal",
-              fontSize: "66px",
-              lineHeight: "110px",
-              letterSpacing: "1px",
-              textAlign: "center",
+
             }}
           >
             Experience Luxury on the
           </span>
-          <br />
           Dubai Marina Waters
         </h1>
       </div>
 
       {/* ======= BOOKING FORM ======= */}
-      <div className="relative z-10 flex justify-center mb-40">
+      <div className="relative z-10 flex justify-center mt-4 px-12 md:mb-40 lg:mb-30 gap-4">
         <div
-          className="flex items-center bg-white  shadow-sm overflow-hidden"
-          style={{
-            width: "953.058px",
-            height: "125px",
-            paddingTop: "26px",
-            paddingRight: "40px",
-            paddingBottom: "26px",
-            paddingLeft: "40px",
-            gap: "10px",
-          }}
-        >
+          className="grid md:flex items-center bg-white shadow-sm w-full lg:w-[849px] p-[26px] gap-[10px] md:justify-between">
           {/* Input Section */}
-          {/* Input Section */}
-          <div
-            className="flex items-center justify-between border border-[#E5E7EB]"
-            style={{
-              width: "560.058px",
-              height: "80px",
-            }}
-          >
+          <div className="grid md:flex lg:items-center md:justify-between border border-[#E5E7EB] w-full md:w-[560.058px] md:h-[80px]">
             {/* Where */}
             <Popover>
               <PopoverTrigger asChild>
                 <button
-                  className="flex-1 text-gray-700 text-left cursor-pointer hover:bg-gray-50 transition"
-                  style={{
-                    fontFamily: "Absans",
-                    fontWeight: 400,
-                    fontSize: "18.61px",
-                    lineHeight: "100%",
-                    height: "80px",
-                    paddingLeft: "20px",
-                    paddingRight: "20px",
-                  }}
+                  className="
+                    md:flex-1
+                    text-gray-700 text-left cursor-pointer
+                    hover:bg-gray-50 transition
+                    font-[Absans] font-normal
+                    text-[13px] lg:text-[18.61px] leading-[100%]
+                    h-13 md:h-[80px]
+                    px-[20px]
+                  "
                 >
                   {where || "Where"}
                 </button>
@@ -98,46 +78,35 @@ export default function HeroSection() {
                   onChange={(e) => setWhere(e.target.value)}
                 />
                 <ul className="mt-2 text-sm space-y-1">
-                  {["Dubai Marina", "Palm Jumeirah", "Bluewaters Island"].map(
-                    (loc) => (
-                      <li
-                        key={loc}
-                        onClick={() => setWhere(loc)}
-                        className="p-2 hover:bg-gray-100 cursor-pointer rounded-md"
-                      >
-                        {loc}
-                      </li>
-                    )
-                  )}
+                  {["Dubai Marina", "Palm Jumeirah", "Bluewaters Island"].map((loc) => (
+                    <li
+                      key={loc}
+                      onClick={() => setWhere(loc)}
+                      className="p-2 hover:bg-gray-100 cursor-pointer rounded-md"
+                    >
+                      {loc}
+                    </li>
+                  ))}
                 </ul>
               </PopoverContent>
             </Popover>
 
             {/* Divider */}
-            <span
-              style={{
-                display: "inline-block",
-                width: "1px",
-                height: "40px",
-                backgroundColor: "gray", 
-                alignSelf: "center", 
-              }}
-            ></span>
+            <span className="inline-block w-full md:w-px h-px md:h-[40px] bg-gray-400 self-center"></span>
 
             {/* When */}
             <Popover>
               <PopoverTrigger asChild>
                 <button
-                  className="flex-1 text-gray-700 text-left cursor-pointer hover:bg-gray-50 transition"
-                  style={{
-                    fontFamily: "Absans",
-                    fontWeight: 400,
-                    fontSize: "18.61px",
-                    lineHeight: "100%",
-                    height: "80px",
-                    paddingLeft: "20px",
-                    paddingRight: "20px",
-                  }}
+                  className="
+                    md:flex-1
+                    text-gray-700 text-left cursor-pointer
+                    hover:bg-gray-50 transition
+                    font-[Absans] font-normal
+                    text-[13px] lg:text-[18.61px] leading-[100%]
+                    h-13 md:h-[80px]
+                    px-[20px]
+                  "
                 >
                   {when || "When"}
                 </button>
@@ -152,30 +121,21 @@ export default function HeroSection() {
             </Popover>
 
             {/* Divider */}
-            <span
-              style={{
-                display: "inline-block",
-                width: "1px",
-                height: "40px",
-                backgroundColor: "gray",
-                alignSelf: "center",
-              }}
-            ></span>
+            <span className="inline-block w-full md:w-px h-px md:h-[40px] bg-gray-400 self-center"></span>
 
             {/* How Many */}
             <Popover>
               <PopoverTrigger asChild>
                 <button
-                  className="flex-1 text-gray-700 text-left cursor-pointer hover:bg-gray-50 transition"
-                  style={{
-                    fontFamily: "Absans",
-                    fontWeight: 400,
-                    fontSize: "18.61px",
-                    lineHeight: "100%",
-                    height: "80px",
-                    paddingLeft: "20px",
-                    paddingRight: "20px",
-                  }}
+                  className="
+                    md:flex-1
+                    text-gray-700 text-left cursor-pointer
+                    hover:bg-gray-50 transition
+                    font-[Absans] font-normal
+                    text-[13px] lg:text-[18.61px] leading-[100%]
+                    h-13 md:h-[80px]
+                    px-[20px]
+                  "
                 >
                   {howMany || "How Many"}
                 </button>
@@ -191,30 +151,21 @@ export default function HeroSection() {
             </Popover>
 
             {/* Divider */}
-            <span
-              style={{
-                display: "inline-block",
-                width: "1px",
-                height: "40px",
-                backgroundColor: "gray", 
-                alignSelf: "center", 
-              }}
-            ></span>
+            <span className="inline-block w-full md:w-px h-px md:h-[40px] bg-gray-400 self-center"></span>
 
             {/* Yacht Type */}
             <Popover>
               <PopoverTrigger asChild>
                 <button
-                  className="flex-1 text-gray-700 cursor-pointer text-left hover:bg-gray-50 transition"
-                  style={{
-                    fontFamily: "Absans",
-                    fontWeight: 400,
-                    fontSize: "18.61px",
-                    lineHeight: "100%",
-                    height: "80px",
-                    paddingLeft: "20px",
-                    paddingRight: "20px",
-                  }}
+                  className="
+                  flex-1
+                  text-gray-700 text-left cursor-pointer
+                  hover:bg-gray-50 transition
+                  font-[Absans] font-normal
+                  text-[12px] lg:text-[18.61px] leading-[100%]
+                  h-13 md:h-[80px]
+                  px-[13px]
+                "
                 >
                   {yachtType || "Yacht Type"}
                 </button>
@@ -235,16 +186,15 @@ export default function HeroSection() {
             </Popover>
           </div>
 
+
           {/* Blue Button */}
           <Button
-            className="rounded-none text-white cursor-pointer transition"
+            className="rounded-none text-white cursor-pointer transition w-full md:w-[205px] h-[47px] md:h-[80px] text-[18px] md:text-[14px]"
             style={{
               backgroundColor: "#2530FF",
-              width: "294px",
-              height: "80px",
+              // height: "",
               fontFamily: "Absans",
               fontWeight: 400,
-              fontSize: "18.61px",
               lineHeight: "100%",
               letterSpacing: "0%",
               textAlign: "center",
@@ -254,6 +204,10 @@ export default function HeroSection() {
           </Button>
         </div>
       </div>
+      <div className="absolute bottom-2 inset-0 md:flex justify-center items-end float-animation hidden ">
+        <Mouse width={60} height={60} />
+      </div>
+
     </section>
   );
 }

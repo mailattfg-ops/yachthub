@@ -60,16 +60,16 @@ const MarqueeItem = ({ data }: { data: any }) => (
     <div className="absolute bottom-4 left-4 text-white">
       <h3
         className="text-3xl font-semibold"
-        style={{ fontFamily:"var(--font-awesome-serif2)" }}
+        style={{ fontFamily: "var(--font-awesome-serif2)" }}
       >
         {data.title1}
       </h3>
       <h2 className="text-4xl font-semibold">{data.title2}</h2>
 
-<p className="text-sm opacity-80 mt-1 flex items-center gap-1">
-  <FaMapMarkerAlt className="text-[14px]" />
-  {data.place.toUpperCase()}
-</p>
+      <p className="text-sm opacity-80 mt-1 flex items-center gap-1">
+        <FaMapMarkerAlt className="text-[14px]" />
+        {data.place.toUpperCase()}
+      </p>
     </div>
   </div>
 );
@@ -80,9 +80,9 @@ export default function LocationsMarquee() {
   return (
     <section
       ref={container}
-      className="w-full bg-white flex flex-col justify-center items-center overflow-hidden py-10"
+      className="w-full bg-white flex flex-col justify-center items-center overflow-hidden py-8"
     >
-      <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center">
+      <h2 className="text-[33px] md:text-[44px] lg:text-[64px] mb-5">
         Most Popular Locations
       </h2>
 
@@ -93,6 +93,17 @@ export default function LocationsMarquee() {
           repeat={4}
           draggable={false}
           direction="left"
+        >
+          {locations.map((loc, i) => (
+            <MarqueeItem key={i} data={loc} />
+          ))}
+        </SimpleMarquee>
+        <SimpleMarquee
+          className="w-full md:hidden mt-4"
+          baseVelocity={8}
+          repeat={4}
+          draggable={false}
+          direction="right"
         >
           {locations.map((loc, i) => (
             <MarqueeItem key={i} data={loc} />

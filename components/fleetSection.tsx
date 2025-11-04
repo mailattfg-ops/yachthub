@@ -55,14 +55,14 @@ const yachts = [
 
 export default function FleetSection() {
   return (
-    <section className="py-20 bg-white text-center">
-      <h2 className="text-4xl md:text-5xl mb-14">
+    <section className="pt-10 pb-8 bg-white text-center">
+      <h2 className="text-[36px] md:text-[44px] lg:text-[64px] mb-5">
         Our Premium Fleet
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-8xl mx-auto px-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-4 md:px-4 lg:px-10">
         {yachts.map((yacht, index) => (
-          <div key={index} className="relative overflow-hidden shadow-lg group">
+          <div key={index} className="relative overflow-hidden shadow-lg group w-full aspect-[319.07/158.74]  lg:aspect-[442/158.74]">
             {/* Yacht Image */}
             <Image
               src={yacht.image}
@@ -76,23 +76,26 @@ export default function FleetSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 
             {/* Bottom Info */}
-            <div className="absolute bottom-0 left-0 w-full text-left text-white p-3">
+            <div className="absolute bottom-0 left-0 w-full text-left text-white">
               <div className="flex items-center justify-between w-full">
-                <div className="flex items-center gap-4 text-sm opacity-90">
-                  <div className="flex items-center">
-                    <h5 className="text-lg font-semibold ">{yacht.name}</h5>
-<span
-  style={{
-    display: "inline-block",
-    width: "1px",
-    height: "40px",
-    backgroundColor: "white",
-  }}
-></span>
+                <div className="flex items-center gap-2 md:gap-2 text-sm opacity-90  pl-3 py-3">
+                  <div className="w-[90px] md:w-[108px] flex items-center">
+                    <p className="text-[17px] md:text-[18px] font-semibold">
+                      {yacht.name}
+                    </p>
+
+                    <span
+                      style={{
+                        display: "inline-block",
+                        width: "1px",
+                        height: "40px",
+                        backgroundColor: "white",
+                      }}
+                    ></span>
                   </div>
 
                   {/* Icon Set (Text below Icon) */}
-                  <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-2 md:gap-3 h-full">
                     <div className="flex flex-col items-center text-xs">
                       <Image
                         src="/assets/people.svg"
@@ -100,16 +103,16 @@ export default function FleetSection() {
                         width={16}
                         height={16}
                       />
-                      <span className="mt-1">{yacht.capacity}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1">{yacht.capacity}</span>
                     </div>{" "}
-<span
-  style={{
-    display: "inline-block",
-    width: "1px",
-    height: "40px",
-    backgroundColor: "white",
-  }}
-></span>
+                    <span
+                      style={{
+                        display: "inline-block",
+                        width: "1px",
+                        height: "40px",
+                        backgroundColor: "white",
+                      }}
+                    ></span>
                     <div className="flex flex-col items-center text-xs">
                       <Image
                         src="/assets/bath.svg"
@@ -117,16 +120,16 @@ export default function FleetSection() {
                         width={16}
                         height={16}
                       />
-                      <span className="mt-1">{yacht.baths}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1">{yacht.baths}</span>
                     </div>{" "}
-<span
-  style={{
-    display: "inline-block",
-    width: "1px",
-    height: "40px",
-    backgroundColor: "white",
-  }}
-></span>
+                    <span
+                      style={{
+                        display: "inline-block",
+                        width: "1px",
+                        height: "40px",
+                        backgroundColor: "white",
+                      }}
+                    ></span>
                     <div className="flex flex-col items-center me-1 text-xs">
                       <Image
                         src="/assets/bed.svg"
@@ -134,13 +137,13 @@ export default function FleetSection() {
                         width={16}
                         height={16}
                       />
-                      <span>{yacht.beds}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1">{yacht.beds}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Price Box (tight fit, no padding) */}
-                <div className="bg-[#002BFF] text-white text-sm text-left -mb-6  -mr-3 font-semibold px-2 py-[8px]">
+                <div className="bg-[#002BFF] text-white text-sm text-left font-semibold px-2 py-[8px] mb-[-20]">
                   {yacht.price}
                 </div>
               </div>
@@ -150,9 +153,11 @@ export default function FleetSection() {
       </div>
 
       {/* CTA Button */}
-      <button className="mt-14 px-8 py-3 border border-[#A3A3A3] text-[#A3A3A3] hover:bg-black hover:text-white transition-all">
-        View Full Fleet
-      </button>
+      <div className="w-full flex justify-center">
+        <button className="hidden md:block mt-8 px-8 py-3 border border-[#A3A3A3] text-[#A3A3A3] hover:bg-black hover:text-white transition-all">
+          View Full Fleet
+        </button>
+      </div>
     </section>
   );
 }

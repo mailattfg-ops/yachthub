@@ -15,16 +15,16 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 text-center bg-white">
-      <h2 className="text-5xl  mb-12 text-gray-900">
+    <section className="py-8 md:pb-12 text-center bg-white">
+      <h2 className="text-[33px] md:text-[44px] lg:text-[64px] mb-5 px-4">
         Why Should You Choose Us?
       </h2>
 
-      <div className="flex flex-wrap justify-center items-center max-w-5xl mx-auto divide-x divide-gray-500">
+      <div className="grid md:flex md:flex-wrap justify-center items-center max-w-5xl mx-auto md:divide-x divide-gray-500">
         {features.map((f, index) => (
           <div
             key={index}
-            className="flex flex-col items-center mt-5 justify-center px-6 sm:px-8 w-2/3 sm:w-auto text-center space-y-6"
+            className="flex flex-col items-center mt-5 justify-center px-8 md:px-5 lg:px-14 w-full md:w-fit text-center space-y-6"
           >
             <Image
               src={f.icon}
@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
               className="mb-2"
             />
             <div className="flex flex-col p-4 leading-tight">
-              <span className="text-gray-900 text-2xl">
+              <span className="text-gray-900 text-[24px]">
                 {f.title}
               </span>
               <span className="text-gray-900  text-2xl">

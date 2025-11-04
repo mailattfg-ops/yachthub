@@ -23,13 +23,8 @@ export default function CharterTypes() {
   ];
 
   return (
-    <section className="py-20 text-center bg-[#002BFF] text-white">
-      <h2
-        className="font-[var(--font-cal-sans)] text-[61.61px] leading-[103%] mb-16"
-        style={{
-          fontFamily: "Cal Sans, sans-serif",
-        }}
-      >
+    <section className="py-8 md:py-6 text-center bg-[#002BFF] text-white">
+      <h2 className="text-[33px] md:text-[44px] lg:text-[64px] mb-5 px-4">
         Charter Types
       </h2>
 
