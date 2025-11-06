@@ -11,7 +11,7 @@ import Footer from "@/components/footer";
 import Book from "@/components/book";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import { fetchBlogBySlug } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
 
@@ -37,11 +37,12 @@ export default function BlogDetailsClient() {
   ];
 
   const searchParams = useSearchParams();
-  const slug = searchParams.get("slug");
+  const slug = searchParams?.get("slug") ?? "";
 
-  useEffect(() => {
-    console.log("slug:", slug);
-  }, [slug]);
+  // useEffect(() => {
+  //   const s = searchParams?.get("slug") || "";
+  //   setSlug(s);
+  // }, [searchParams]);
 
   useEffect(() => {
     const sections = document.querySelectorAll("article section");
@@ -203,7 +204,7 @@ export default function BlogDetailsClient() {
               {/* Hero Image */}
               <section className="w-full h-[302px] md:h-[392.9835510253906px] lg:h-[877px]  max-w-8xl overflow-hidden">
                 <Image
-                  src={blog.img || "/assets/blog-card.jpg"} 
+                  src={blog.img || "/assets/blog-card.jpg"}
                   alt="Yacht image"
                   width={1200}
                   height={100}
