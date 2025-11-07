@@ -8,8 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-const GOOGLE_SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQgqRTZETFKFiJV-TyoBX43wInYGAcqqvK1Rf3yX2dEcKJuvOv_HCMqMKjLk0m7wvbWTBLSs6887Jwf/pub?gid=0&single=true&output=csv";
+const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQgqRTZETFKFiJV-TyoBX43wInYGAcqqvK1Rf3yX2dEcKJuvOv_HCMqMKjLk0m7wvbWTBLSs6887Jwf/pub?gid=0&single=true&output=csv";
 export async function fetchAllBlogs(slug:any) {
   try {
     const response = await axios.get(`${GOOGLE_SHEET_CSV_URL}&t=${Date.now()}`, {

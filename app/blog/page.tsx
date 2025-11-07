@@ -40,7 +40,7 @@ export default function BlogPage() {
   if (!post) {
     return (
       <div className="bg-white text-black min-h-screen pt-40 text-center">
-        <h1 className="text-4xl font-bold">Loading...</h1>
+        <h2 className="text-4xl font-bold">Loading...</h2>
         <p className="mt-4">
           <Link href="/blog" className="text-blue-600 hover:underline">
             Back to Blog
@@ -64,8 +64,6 @@ export default function BlogPage() {
             muted
             playsInline
           />
-
-
           <h1 className="relative z-10 text-[44.1px] leading-snug md:text-5xl font-light max-w-3xl px-20">
             Read about life aboard the best yachts in the world
           </h1>
@@ -92,9 +90,9 @@ export default function BlogPage() {
                         <p className="text-sm text-[#2530FF] font-medium mb-2">
                           Explore
                         </p>
-                        <h1 className="!font-[CalSans] text-[22px] md:text-[25px] lg:text-[40px] font-normal leading-snug mb-3">
+                        <h2 className="!font-[CalSans] text-[22px] md:text-[25px] lg:text-[40px] font-normal leading-snug mb-3">
                           {blog.title}
-                        </h1>
+                        </h2>
                         <p className="text-md font-medium">
                           {blog.desc}
                         </p>

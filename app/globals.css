@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: "Awesome Serif VAR";
-  src: url("/fonts/Awesome-Font-Family/Awesome Serif Desktop Fonts/Variable Fonts/Awesome Serif VAR-VF") format("truetype");
+  src: url("/fonts/Awesome-Font-Family/Awesome Serif Desktop Fonts/Variable Fonts/Awesome Serif VAR-VF.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -31,7 +31,6 @@
   /* Optional: ensures kerning features are on */
 
 }
-/* "C:\Users\shiju\OneDrive\Desktop\yatch\yacht\public\fonts\Cal_Sans\CalSans-Regular.ttf" */
 @font-face {
   font-family: "Sh Ad Grotesk";
   src: url("/fonts/sh-ad-grotesk-medium-regular_DUASU/Sh Ad Grotesk Medium Regular/Sh Ad Grotesk Medium Regular") format("truetype");

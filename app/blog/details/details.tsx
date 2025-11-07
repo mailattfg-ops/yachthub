@@ -99,7 +99,7 @@ export default function BlogDetailsClient() {
   if (!post) {
     return (
       <div className="bg-white text-black min-h-screen pt-40 text-center">
-        <h1 className="text-4xl font-bold">Loading...</h1>
+        <h2 className="text-4xl font-bold">Loading...</h2>
         <p className="mt-4">
           <Link href="/blog" className="text-blue-600 hover:underline">
             Back to Blog
