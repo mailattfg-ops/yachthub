@@ -52,7 +52,7 @@ export default function HeroSection() {
           {/* Input Section */}
           <div className="grid md:flex lg:items-center md:justify-between border border-[#E5E7EB] w-full md:w-[560.058px] md:h-[80px]">
             {/* Where */}
-            <Popover>
+            {/* <Popover>
               <PopoverTrigger asChild>
                 <button
                   className="
@@ -86,10 +86,10 @@ export default function HeroSection() {
                   ))}
                 </ul>
               </PopoverContent>
-            </Popover>
+            </Popover> */}
 
             {/* Divider */}
-            <span className="inline-block w-full md:w-px h-px md:h-[40px] bg-gray-400 self-center"></span>
+            {/* <span className="inline-block w-full md:w-px h-px md:h-[40px] bg-gray-400 self-center"></span> */}
 
             {/* When */}
             <Popover>

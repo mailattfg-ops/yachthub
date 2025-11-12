@@ -5,7 +5,8 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer
-      className="relative border-gray-200 w-[full] h-[820px] md:h-[645px] overflow-hidden"
+      id="contact"
+      className="contact relative border-gray-200 w-[full] h-[820px] md:h-[645px] overflow-hidden"
       style={{
         backgroundImage: "url('/assets/footer.png')",
         backgroundRepeat: "no-repeat",
