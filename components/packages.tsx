@@ -11,21 +11,21 @@ const yachts = [
     subtext: "Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
     gradient: "linear-gradient(180deg, rgba(37, 48, 255, 0) 0%, #2530FF 75.81%)",
     price: "15,000/day",
-    image: "/assets/package1.JPG"
+    image: "/assets/package1.jpg"
   },
   {
     text: "Coastal Expedition ",
     subtext: "Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
     gradient: "linear-gradient(180deg, rgba(159, 59, 57, 0) 0%, #9F3B39 75.81%)",
     price: "15,000/day",
-    image: "/assets/package2.JPG"
+    image: "/assets/package2.jpg"
   },
   {
     text: "Coastal Expedition ",
     subtext: "Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
     gradient: "linear-gradient(180deg, rgba(4, 49, 42, 0) 0%, #04312A 75.81%)",
     price: "15,000/day",
-    image: "/assets/package5.JPG"
+    image: "/assets/package5.jpg"
   },
   {
     text: "Coastal Expedition ",
@@ -64,7 +64,7 @@ export default function PackageSection() {
           <div key={index} className="relative w-[494px] h-[400px] md:h-[615px] overflow-hidden shadow-lg group w-full">
             {/* Yacht Image */}
             <Image
-              src={ yacht.image || "/assets/package.jpg"}
+              src={ yacht.image || "/assets/package.jpg" || "/assets/package.JPG"}
               alt={"image"}
               width={900}
               height={500}

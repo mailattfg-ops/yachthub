@@ -45,7 +45,7 @@ export default function BlogDetailsClient() {
         {/* Hero Image */}
         <section className="w-full h-[264.0487060546875px] md:h-[393px] lg:h-[877px] md:px-8 lg:px-12 flex justify-center overflow-hidden">
           <Image
-            src={"/assets/package1.JPG"}
+            src={"/assets/package1.jpg"}
             alt="Yacht image"
             width={1200}
             height={100}
@@ -59,7 +59,7 @@ export default function BlogDetailsClient() {
                 ${i > 1 ? "hidden" : ""} 
                 ${i <= 4 ? "md:flex" : "md:hidden"}`}>
                 <Image
-                  src={`/assets/package${i + 1}.JPG`}
+                  src={`/assets/package${i + 1}.jpg`}
                   alt={`Yacht image ${i + 1}`}
                   width={200}
                   height={100}
