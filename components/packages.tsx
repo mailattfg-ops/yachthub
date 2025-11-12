@@ -39,7 +39,7 @@ const yachts = [
     subtext: "Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
     gradient: "linear-gradient(180deg, rgba(159, 59, 57, 0) 0%, #F17508 75.81%)",
     price: "15,000/day",
-    image: "/assets/package3.JPG"
+    image: "/assets/package3.jpg"
   },
   {
     text: "Coastal Expedition ",
