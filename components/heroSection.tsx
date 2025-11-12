@@ -37,10 +37,7 @@ export default function HeroSection() {
           className="font-[Absans] grid text-center text-[33px] md:text-[66px] letterSpacing-[-6] md:text-left lineHeight-[2] "
         >
           <span className=""
-            style={{
-              fontFamily: "var(--font-awesome-serif)",
-
-            }}
+            style={{fontFamily: "var(--font-awesome-serif)",}}
           >
             Experience Luxury on the
           </span>

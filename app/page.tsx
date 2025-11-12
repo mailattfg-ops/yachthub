@@ -5,6 +5,7 @@ import CharterTypes from "../components/charterTypes";
 import Footer from "../components/footer";
 import Navbar from "@/components/navbar";
 import Locations from "@/components/locations";
+import MoreContent from "@/components/moreContent";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Locations/>
       <WhyChooseUs />
       <CharterTypes />
+      <MoreContent />
       <Footer />
     </main>
   );
