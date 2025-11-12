@@ -70,20 +70,18 @@ export default function Footer() {
                   {/* <sup className="text-[12px] text-gray-400">STUDIO</sup> */}
                 </p>
                 <p className="font-bold text-xl">
-                  SERVICES{" "}
+                  PACKAGES
                   {/* <sup className="text-[12px] text-gray-400"> SERVICES</sup> */}
                 </p>
                 {/* <p className="font-bold text-xl">
                   CLIENTS
                   <sup className="text-[12px] text-gray-400">CORE</sup>
-                </p>
+                </p>*/}
                 <p className="font-bold text-xl">
-                  FUTURE
-                  <sup className="text-[12px] text-gray-400">CORE</sup>
-                </p> */}
+                  BLOG
+                </p> 
                 <p className="font-bold text-xl">
                   CONTACT
-                  {/* <sup className="text-[12px] text-gray-400">CORE</sup> */}
                 </p>
                 {/* Social Icons */}
                 <div className="md:hidden flex gap-3 pt-4">
