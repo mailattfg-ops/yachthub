@@ -1,67 +1,145 @@
 "use client";
 
 import Image from "next/image";
+import { MapPin } from 'lucide-react';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+
+const yachts = [
+    {
+        text: "Palm Jumeirah Sightseeing",
+        subtext: "Palm Jumeriah , Dubai",
+        gradient: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)",
+        image: "/assets/events.jpg"
+    },
+    {
+        text: "Romantic Dinner on Yacht",
+        subtext: "Dubai",
+        gradient: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)",
+        image: "/assets/events.jpg"
+    },
+    {
+        text: "New Year’s Eve Yacht Rental",
+        subtext: "Dubai",
+        gradient: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)",
+        image: "/assets/events.jpg"
+    },
+    {
+        text: "Birthday & Anniversary Parties",
+        subtext: "Dubai",
+        gradient: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)",
+        image: "/assets/events.jpg"
+    },
+    {
+        text: "Corporate Events",
+        subtext: "Dubai",
+        gradient: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)",
+        image: "/assets/events.jpg"
+    },
+    {
+        text: "Sunset Yacht Cruise Dubai",
+        subtext: "Dubai",
+        gradient: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)",
+        image: "/assets/events.jpg"
+    },
+
+];
 
 export default function MoreContent() {
 
     return (
         <>
-            <section className="w-full py-8 px-6 md:px-12 md:py-10 ">
-                <h2 className="w-full font-[Absans] text-[33px] md:text-[44px] lg:text-[64px] mb-5 text-center">More Content (Lorem Ipsum)</h2>
-                <div className="w-full grid gap-6 md:px-12 lg:px-0 xl:px-12">
-                    <div className="grid lg:flex w-full bg-white border border-[#A6A6A6] cursor-pointer 
-                        hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-                        <div className="p-4 md:-8 flex flex-col justify-between">
-                            <div className="w-[250px] md:w-[450px] lg:w-[400px] xl:w-[590px]">
-                                <p className="text-sm text-[#2530FF] font-medium mb-2">
-                                    Explore
-                                </p>
-                                <h2 className="!font-[CalSans] text-[22px] md:text-[25px] lg:text-[40px] font-normal leading-[103%] mb-3">
-                                    Gorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
-                                </h2>
+            <section className="w-full pb-8 px-6 md:px-12 md:pb-10 ">
+                <h2 className="w-full font-[Absans] text-[33px] md:text-[44px] lg:text-[64px] mb-5 text-center">Popular Yacht Experiences</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10 pt-8">
+                    {yachts.map((yacht, index) => (
+                        <div key={index} className="relative w-[494px] h-[350px] md:h-[515px] overflow-hidden shadow-lg group w-full">
+                            {/* Yacht Image */}
+                            <Image
+                                src={yacht.image || "/assets/package.jpg" || "/assets/package.JPG"}
+                                alt={"image"}
+                                width={900}
+                                height={500}
+                                className="w-full h-full object-cover group-hover:scale-101 transition-transform duration-500"
+                            />
+                            {/* Overlay Gradient */}
+                            <div className=" bg-gradient-to-t from-black/80 to-transparent"></div>
+
+                            {/* Bottom Info */}
+                            <div className="absolute bottom-0 w-full text-left text-white pb-4" style={{ background: `${yacht.gradient}` }}>
+                                <div className="w-full flex items-center justify-between w-full">
+                                    <div className="w-full grid items-center gap-2 md:gap-2 text-sm opacity-90  p-3">
+                                        <div className="w-full grid items-center">
+                                            <p className="text-[29px] md:text-[36px] lg:text-[54px] font-semibold">
+                                                {yacht.text}
+                                            </p>
+                                            <span className="text-[15px] flex">
+                                                <MapPin /> {yacht.subtext}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {/* Price Box (tight fit, no padding) */}
+
+                                </div>
                             </div>
                         </div>
+                    ))}
+                </div>
 
-                        {/* Right Image */}
-                        <div className="relative w-[863px] h-68 lg:h-80 xl:h-68">
-                            <Image
-                                src={"/assets/blog-card.jpg"}
-                                alt="Yacht in Dubai"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                    </div>
-                    <div className="grid lg:flex bg-white border border-[#A6A6A6] cursor-pointer 
-                        hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-
-                        <div className="relative w-[863px] h-68 lg:h-80 xl:h-68">
-                            <Image
-                                src={"/assets/blog-card.jpg"}
-                                alt="Yacht in Dubai"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        <div className="p-4 md:-8 flex flex-col justify-between">
-                            <div className="w-[250px] md:w-[450px] lg:w-[400px] xl:w-[590px]">
-                                <p className="text-sm text-[#2530FF] font-medium mb-2">
-                                    Explore
-                                </p>
-                                <h2 className="!font-[CalSans] text-[22px] md:text-[25px] lg:text-[40px] font-normal leading-[103%] mb-3">
-                                    Gorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
-                                </h2>
-                            </div>
-                        </div>
+            </section>
+            {/* FAQ */}
+            <section className="w-full pb-8 px-6 md:px-12 md:pb-10 ">
+                <h2 className="w-full font-[Absans] text-[23px] md:text-[29px] lg:text-[49.03px] mb-5 text-center lg:text-start">Frequently Asked Questions</h2>
+                <div className="flex gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10 pt-8 justify-end">
+                    <div className="w-full lg:w-[80%]">
+                        <Accordion
+                            type="single"
+                            collapsible
+                            className="w-full"
+                            defaultValue="item-1"
+                        >
+                            <AccordionItem value="item-1">
+                                <AccordionTrigger className="text-[20.59px] md:text-[20.59px] lg:text-[34.32px]"> How much does it cost to rent a yacht in Dubai?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance">
+                                    <p className="text-[14px] md:text-[17px] lg:text-[29.42px]">
+                                        Our flagship product combines cutting-edge technology with sleek
+                                        design. Built with premium materials, it offers unparalleled
+                                        performance and reliability.
+                                    </p>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-2">
+                                <AccordionTrigger className="text-[20.59px] md:text-[20.59px] lg:text-[34.32px]">Do you offer catering or decorations?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance">
+                                    <p className="text-[14px] md:text-[17px] lg:text-[29.42px]">
+                                        Our flagship product combines cutting-edge technology with sleek
+                                        design. Built with premium materials, it offers unparalleled
+                                        performance and reliability.
+                                    </p>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-3">
+                                <AccordionTrigger className="text-[20.59px] md:text-[20.59px] lg:text-[34.32px]">What is the minimum booking duration?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance">
+                                    <p className="text-[14px] md:text-[17px] lg:text-[29.42px]">
+                                        Our flagship product combines cutting-edge technology with sleek
+                                        design. Built with premium materials, it offers unparalleled
+                                        performance and reliability.
+                                    </p>
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
                     </div>
                 </div>
-                <p className=" text-[22px] md:text-[25px] lg:text-[40px] text-center px-8 py-10 font-normal leading-[103%] mb-3">
-                    Gorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
-                </p>
+
             </section>
             {/* Hero Image */}
-            <section className="w-full h-[302px] md:h-[392.9835510253906px] lg:h-[877px]  max-w-8xl overflow-hidden">
+            {/* <section className="w-full h-[302px] md:h-[392.9835510253906px] lg:h-[877px]  max-w-8xl overflow-hidden">
                 <Image
                     src={"/assets/blog-card.jpg"}
                     alt="Yacht image"
@@ -69,7 +147,7 @@ export default function MoreContent() {
                     height={100}
                     className="w-full object-cover"
                 />
-            </section>
+            </section> */}
         </>
     );
 }

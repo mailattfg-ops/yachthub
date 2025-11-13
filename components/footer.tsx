@@ -26,6 +26,12 @@ export default function Footer() {
                   Office 210, Al Serkal Avenue, Al Quoz Industrial Area 1, Dubai, United Arab Emirates
                 </p>
                 <p className="grid font-bold text-xl m-0">
+                  EMAIL
+                </p>
+                <p className="w-[260px] text-[18px] text-[#8D8D8D] font-[500] leading-[inherit]">
+                  ABCDEFG@gmail.com
+                </p>
+                <p className="grid font-bold text-xl m-0">
                   PHONE
                 </p>
                 <p className="w-[260px] text-[18px] text-[#8D8D8D] font-[500] leading-[inherit]">

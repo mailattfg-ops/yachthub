@@ -19,6 +19,20 @@ export default function Navbar() {
     { href: "#contact", label: "Contact" },
   ];
 
+  function sendWhatsAppMessage() {
+    const phoneNumber = "919745004161"; // receiver's phone number (with country code)
+    const message = "Hello there! I would like to book a yacht.";
+    
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in new tab
+    window.open(whatsappURL, "_blank");
+  }
+
   return (
     <nav className="absolute top-0 left-0 w-full z-50 font-absans flex items-center justify-between 
     px-2 lg:px-4 py-6 text-white bg-transparent">
@@ -77,7 +91,8 @@ export default function Navbar() {
       <div className="flex items-center md:space-x-4">
         {/* WhatsApp Button */}
         <Button className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
-        rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4">
+        rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4"
+        onClick={()=>sendWhatsAppMessage()}>
           <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="image" />
           <span className="text-[9px] md:text-[13px] lg:text-[13px] ">Book on WhatsApp</span>
         </Button>

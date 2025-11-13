@@ -58,6 +58,33 @@ const yachts = [
     price: "AED 30,000/day",
     image: "/assets/fleet2.jpg",
   },
+  {
+    name: "Azimut Grande 35",
+    capacity: "Up to 8",
+    baths: "2 baths",
+    beds: "4 Beds",
+    crew: "4 Crew",
+    price: "AED 15,000/day",
+    image: "/assets/fleet1.jpg",
+  },
+  {
+    name: "Azimut Grande 35",
+    capacity: "Up to 9",
+    baths: "3 baths",
+    beds: "5 Beds",
+    crew: "4 Crew",
+    price: "AED 18,500/day",
+    image: "/assets/fleet2.jpg",
+  },
+  {
+    name: "Azimut Grande 35",
+    capacity: "Up to 12",
+    baths: "4 baths",
+    beds: "6 Beds",
+    crew: "4 Crew",
+    price: "AED 22,000/day",
+    image: "/assets/fleet1.jpg",
+  },
 ];
 
 export default function FleetSection() {
@@ -78,7 +105,7 @@ export default function FleetSection() {
               height={500}
               className="w-full h-[300px] object-cover group-hover:scale-101 transition-transform duration-500"
             />
-            <div className="absolute top-0 left-0 bg-[#002BFF] text-white text-sm font-semibold h-[55px] flex items-center justify-center px-2 mb-[-20]">
+            <div className="absolute top-0 left-0 bg-[#000] text-white text-sm font-semibold h-[55px] flex items-center justify-center px-2 mb-[-20]">
               {yacht.price}
             </div>
             {/* Overlay Gradient */}
@@ -89,7 +116,7 @@ export default function FleetSection() {
               <div className="w-full flex items-center justify-between w-full">
                 <div className="w-full grid items-center gap-2 md:gap-2 text-sm opacity-90  p-3">
                   <div className="w-full md:w-1/2 flex items-center">
-                    <p className="text-[25px] md:text-[25px] font-semibold text-black">
+                    <p className="text-[25px] md:text-[25px] lg:text-[40px] font-semibold text-black">
                       {yacht.name}
                     </p>
                   </div>
@@ -157,8 +184,40 @@ export default function FleetSection() {
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.crew}</span>
                     </div>
                   </div>
+                  <div className="flex gap-2">
+                    <Button
+                      className="rounded-none text-white cursor-pointer transition flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
+                      style={{
+                        backgroundColor: "#1597CC",
+                        // height: "",
+                        fontFamily: "Absans",
+                        fontWeight: 400,
+                        lineHeight: "100%",
+                        letterSpacing: "0%",
+                        textAlign: "center",
+                      }}
+                    >
+                      Book On
+                      <img src="/assets/telegram.svg" className="w-6 h-6" alt="image" />
+                    </Button>
+                    <Button
+                      className="rounded-none text-white cursor-pointer transition flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
+                      style={{
+                        backgroundColor: "#373737",
+                        // height: "",
+                        fontFamily: "Absans",
+                        fontWeight: 400,
+                        lineHeight: "100%",
+                        letterSpacing: "0%",
+                        textAlign: "center",
+                      }}
+                    >
+                      Book On
+                      <img src="/assets/mail.svg" className="w-6 h-6" alt="image" />
+                    </Button>
+                  </div>
                   <Button
-                    className="rounded-none text-white cursor-pointer transition w-full h-[40px] md:h-[55px] text-[25px] md:text-[25px]"
+                    className="rounded-none text-white cursor-pointer transition w-full h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
                     style={{
                       backgroundColor: "#2530FF",
                       // height: "",
@@ -172,6 +231,7 @@ export default function FleetSection() {
                     Book On
                     <img src="/assets/whatsapp.svg" className="w-6 h-6" alt="image" />
                   </Button>
+
                 </div>
 
                 {/* Price Box (tight fit, no padding) */}
