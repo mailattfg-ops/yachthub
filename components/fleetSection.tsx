@@ -219,7 +219,7 @@ export default function FleetSection() {
                   <Button
                     className="rounded-none text-white cursor-pointer transition w-full h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
                     style={{
-                      backgroundColor: "#2530FF",
+                      backgroundColor: "#02CE1A",
                       // height: "",
                       fontFamily: "Absans",
                       fontWeight: 400,
