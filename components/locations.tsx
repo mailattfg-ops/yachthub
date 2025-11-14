@@ -85,7 +85,7 @@ export default function LocationsMarquee() {
       className="w-full bg-white flex flex-col justify-center items-center overflow-hidden py-8"
     >
       <h2 className="font-[Absans] text-[33px] md:text-[44px] lg:text-[64px] mb-5">
-        Most Popular Locations
+        Most Popular Packages
       </h2>
 
       <div className="w-[100%] max-w-8xl mx-auto overflow-hidden">
@@ -100,7 +100,7 @@ export default function LocationsMarquee() {
             <MarqueeItem key={i} data={loc} />
           ))}
         </SimpleMarquee>
-        <SimpleMarquee
+        {/* <SimpleMarquee
           className="w-full md:hidden mt-4"
           baseVelocity={8}
           repeat={4}
@@ -110,7 +110,7 @@ export default function LocationsMarquee() {
           {locations.map((loc, i) => (
             <MarqueeItem key={i} data={loc} />
           ))}
-        </SimpleMarquee>
+        </SimpleMarquee> */}
       </div>
     </section>
   );

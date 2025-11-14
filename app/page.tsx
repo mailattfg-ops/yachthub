@@ -23,13 +23,9 @@ export default function HomePage() {
       <YachtRental />
       <MoreContent />
       <Book />
-      <Image
-        src="/assets/map.png"
-        alt="Map location"
-        width={800}
-        height={400}
-        className="w-full h-[415px] md:h-auto rounded-lg"
-      />
+      <div className="w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14454.218270649995!2d55.12843605038564!3d25.083082194550077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6dff36c51cdb%3A0x7419c48e6f2373f4!2sXclusive%20Yachts%20Marina%20Promenade%20Kiosk!5e0!3m2!1sen!2sin!4v1763119849993!5m2!1sen!2sin" width="100%" height="450" loading="lazy"></iframe>
+      </div>
       <Footer />
     </main>
   );

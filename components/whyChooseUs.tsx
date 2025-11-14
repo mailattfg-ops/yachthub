@@ -18,11 +18,11 @@ export default function WhyChooseUs() {
         Why Should You Choose Us?
       </h2>
 
-      <div className="grid md:flex md:flex-wrap justify-center items-center items-start md:divide-x divide-gray-500 mb-10">
+      <div className="grid lg:flex md:flex-wrap justify-center items-center items-start divide-y lg:divide-x divide-gray-500 mb-10">
         {features.map((f, index) => (
           <div
             key={index}
-            className="flex flex-col items-center mt-5 justify-center px-8 md:px-5 lg:px-8 w-full h-[-webkit-fill-available] md:w-fit text-center space-y-6"
+            className="flex flex-col items-center mt-5 justify-center px-8 md:px-5 lg:px-8 w-full h-[-webkit-fill-available] md:w-fit text-center space-y-6  pb-6 lg:pb-0"
           >
             <Image
               src={f.icon}
@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
           </div>
         ))}
       </div>
-      <p className="text-[26px] font-thin tracking-[0%] px-6">Experience the freedom of the sea with the most trusted name in Yacht Rental Dubai — Yacht Hub Dubai.</p>
+      <p className="text-[19px] md:text-[26px] lg:text-[30px] font-thin tracking-[0%] px-6">Experience the freedom of the sea with the most trusted name in Yacht Rental Dubai — Yacht Hub Dubai.</p>
     </section>
   );
 }

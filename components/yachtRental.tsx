@@ -55,7 +55,7 @@ export default function YachtRental() {
                 </div>
               </div>
               <div>
-                <p className="font-normal text-[23.62px] text-left leading-[29.53px] pb-6 tracking-normal">
+                <p className="font-normal text-[16px] lg:text-[23.62px] text-left leading-[29.53px] pt-4 pb-6 tracking-normal">
                   "Whether you're a beginner or an expert,
                   DiveTo.AI provides excellent resources to
                   help you achieve your goals"
@@ -79,7 +79,7 @@ export default function YachtRental() {
               </div>
             </div>
             <div>
-              <p className="font-normal text-[23.62px] text-left leading-[29.53px] py-6 tracking-normal">
+              <p className="font-normal text-[16px] lg:text-[23.62px] text-left leading-[29.53px] py-6 tracking-normal">
                 "Whether you're a beginner or an expert,
                 DiveTo.AI provides excellent resources to
                 help you achieve your goals"
@@ -132,7 +132,7 @@ export default function YachtRental() {
                   <div className="w-full flex items-center justify-between w-full">
                     <div className="w-full grid items-center gap-2 md:gap-2 text-sm opacity-90  p-3">
                       <div className="w-full grid items-center">
-                        <p className="text-[25px] md:text-[32px] lg:text-[40px] font-semibold">
+                        <p className="text-[25px] md:text-[32px] lg:text-[40px] font-semibold leading-[100%]">
                           {yacht.text}
                         </p>
                         <span className="text-[15px]">

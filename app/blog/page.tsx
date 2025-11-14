@@ -12,43 +12,46 @@ import TopReads from "@/components/topReads";
 import Book from "@/components/book";
 import { useEffect, useState } from "react";
 import { fetchBlogBySlug } from "@/lib/utils";
+import { createClient } from '@supabase/supabase-js'
 
 
 export default function BlogPage() {
   const [post, setPost] = useState<any[] | null>(null);
   const [loading, setLoading] = useState(true);
+  const [limit, setLimit] = useState(false);
+
   const slug = "affordable-yacht";
-  useEffect(() => {
-    async function loadPost() {
-      try {
-        const data = await fetchBlogBySlug(slug);
-        console.log(data);
+  const fetchPost = async () => {
+    const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
+    console.log("Supabase ENV:", SUPABASE_URL, SUPABASE_KEY);
 
-        setPost(data);
-      } catch (err) {
-        console.error("Error loading post:", err);
-      } finally {
-        setLoading(false);
-      }
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+    console.log("Supabase client:", supabase);
+
+    const { data, error } = await supabase
+      .from("blog")
+      .select("*");
+
+    if (error) {
+      console.error("Error fetching post:", error);
+    } else {
+      console.log("data", data);
+      setPost(data);
+      setLoading(false);
     }
-    loadPost();
-    window.scrollTo(0, 0);
-  }, [slug]);
-  // if (loading) return <Loader />;
-  console.log("post", post);
+  };
 
-  if (!post) {
-    return (
-      <div className="bg-white text-black min-h-screen pt-40 text-center">
-        <h2 className="text-4xl font-bold">Loading...</h2>
-        <p className="mt-4">
-          <Link href="/blog" className="text-blue-600 hover:underline">
-            Back to Blog
-          </Link>
-        </p>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (!limit) {
+      setLimit(true);
+    }
+    setLoading(true);
+
+
+    fetchPost();
+  }, []);
+
   return (
     <>
       <main className="flex flex-col items-center justify-center w-full">

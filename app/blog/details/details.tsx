@@ -83,19 +83,6 @@ export default function BlogDetailsClient() {
   // if (loading) return <Loader />;
   console.log("post", post);
 
-  if (!post) {
-    return (
-      <div className="bg-white text-black min-h-screen pt-40 text-center">
-        <h2 className="text-4xl font-bold">Loading...</h2>
-        <p className="mt-4">
-          <Link href="/blog" className="text-blue-600 hover:underline">
-            Back to Blog
-          </Link>
-        </p>
-      </div>
-    );
-  }
-
   return (
     <>
       <main className="flex flex-col items-center w-full">

@@ -169,7 +169,7 @@ export default function HeroSection() {
               </PopoverTrigger>
               <PopoverContent className="w-64">
                 <ul className="text-sm space-y-1">
-                  {["Luxury", "Sport", "Party", "Family"].map((type) => (
+                  {["Luxury", "Sport", "Party", "Family" ,"I'm Not Sure"].map((type) => (
                     <li
                       key={type}
                       onClick={() => setYachtType(type)}

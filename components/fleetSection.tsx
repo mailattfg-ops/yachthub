@@ -2,92 +2,92 @@
 
 import Image from "next/image";
 import { Button } from "./ui/button";
-
-const yachts = [
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 8",
-    baths: "2 baths",
-    beds: "4 Beds",
-    crew: "4 Crew",
-    price: "AED 15,000/day",
-    image: "/assets/fleet1.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 9",
-    baths: "3 baths",
-    beds: "5 Beds",
-    crew: "4 Crew",
-    price: "AED 18,500/day",
-    image: "/assets/fleet2.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 12",
-    baths: "4 baths",
-    beds: "6 Beds",
-    crew: "4 Crew",
-    price: "AED 22,000/day",
-    image: "/assets/fleet1.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 9",
-    baths: "2 baths",
-    beds: "4 Beds",
-    crew: "4 Crew",
-    price: "AED 17,000/day",
-    image: "/assets/fleet2.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 10",
-    baths: "3 baths",
-    beds: "5 Beds",
-    crew: "4 Crew",
-    price: "AED 19,500/day",
-    image: "/assets/fleet1.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 14",
-    baths: "5 baths",
-    beds: "7 Beds",
-    crew: "4 Crew",
-    price: "AED 30,000/day",
-    image: "/assets/fleet2.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 8",
-    baths: "2 baths",
-    beds: "4 Beds",
-    crew: "4 Crew",
-    price: "AED 15,000/day",
-    image: "/assets/fleet1.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 9",
-    baths: "3 baths",
-    beds: "5 Beds",
-    crew: "4 Crew",
-    price: "AED 18,500/day",
-    image: "/assets/fleet2.jpg",
-  },
-  {
-    name: "Azimut Grande 35",
-    capacity: "Up to 12",
-    baths: "4 baths",
-    beds: "6 Beds",
-    crew: "4 Crew",
-    price: "AED 22,000/day",
-    image: "/assets/fleet1.jpg",
-  },
-];
+import { FormEvent, useEffect, useState } from "react";
+import { createClient } from '@supabase/supabase-js';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 export default function FleetSection() {
+  const [data, setData] = useState<any[]>([]);
+  const [limit, setLimit] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [supabase, setSupabase] = useState<any>(null);
+
+  const fetchPost = async () => {
+    const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
+    console.log("Supabase ENV:", SUPABASE_URL, SUPABASE_KEY);
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+    setSupabase(supabase);
+    console.log("Supabase client:", supabase);
+
+    const { data, error } = await supabase
+      .from("fleet")
+      .select("*");
+
+    if (error) {
+      console.error("Error fetching post:", error);
+    } else {
+      console.log("data", data);
+      setData(data);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!limit) {
+      setLimit(true);
+    }
+    setLoading(true);
+    fetchPost();
+  }, []);
+
+  async function handleBookingSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const form = e.currentTarget; // safe in TS
+    const formData = new FormData(form);
+
+    const data = {
+      fleet: formData.get("fleet") as string,
+      name: formData.get("name") as string,
+      phone: formData.get("phone") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    // Optional: simple validation
+    if (!data.name || !data.phone || !data.email) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    const { error } = await supabase
+      .from("email_book")
+      .insert([data]);
+
+    if (error) {
+      console.error(error);
+      alert("Something went wrong!");
+      return;
+    }
+
+    alert("Booking submitted successfully!");
+
+    // Reset or close dialog if needed
+    form.reset();
+  }
   return (
     <section className="pt-10 pb-8 bg-white text-center">
       <h2 className="font-[Absans] text-[36px] md:text-[44px] lg:text-[64px] mb-5">
@@ -95,7 +95,7 @@ export default function FleetSection() {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10">
-        {yachts.map((yacht, index) => (
+        {data.map((yacht, index) => (
           <div key={index} className="relative overflow-hidden shadow-lg group w-full">
             {/* Yacht Image */}
             <Image
@@ -116,7 +116,7 @@ export default function FleetSection() {
               <div className="w-full flex items-center justify-between w-full">
                 <div className="w-full grid items-center gap-2 md:gap-2 text-sm opacity-90  p-3">
                   <div className="w-full md:w-1/2 flex items-center">
-                    <p className="text-[25px] md:text-[25px] lg:text-[40px] font-semibold text-black">
+                    <p className="text-[25px] md:text-[25px] lg:text-[40px] font-semibold text-black leading-[84%]">
                       {yacht.name}
                     </p>
                   </div>
@@ -184,9 +184,9 @@ export default function FleetSection() {
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.crew}</span>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex justify-between">
                     <Button
-                      className="rounded-none text-white cursor-pointer transition flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
+                      className="rounded-none text-white cursor-pointer transition flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px] mr-2"
                       style={{
                         backgroundColor: "#1597CC",
                         // height: "",
@@ -200,21 +200,61 @@ export default function FleetSection() {
                       Book On
                       <img src="/assets/telegram.svg" className="w-6 h-6" alt="image" />
                     </Button>
-                    <Button
-                      className="rounded-none text-white cursor-pointer transition flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
-                      style={{
-                        backgroundColor: "#373737",
-                        // height: "",
-                        fontFamily: "Absans",
-                        fontWeight: 400,
-                        lineHeight: "100%",
-                        letterSpacing: "0%",
-                        textAlign: "center",
-                      }}
-                    >
-                      Book On
-                      <img src="/assets/mail.svg" className="w-6 h-6" alt="image" />
-                    </Button>
+
+                    <Dialog>
+                      <DialogTrigger className="rounded-none text-white cursor-pointer transition flex items-center justify-center gap-2 flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
+                        style={{
+                          backgroundColor: "#373737",
+                          // height: "",
+                          fontFamily: "Absans",
+                          fontWeight: 400,
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
+                          textAlign: "center",
+                        }}
+                      >
+                        Book On
+                        <img src="/assets/mail.svg" className="w-6 h-6" alt="image" />
+                      </DialogTrigger>
+                      <form onSubmit={(e) => handleBookingSubmit(e)}>
+                        <DialogContent className="sm:max-w-[425px]">
+                          <DialogHeader>
+                            <DialogTitle><h2 className="text-[24px] text-[#000]">Book Now!</h2></DialogTitle>
+                            <DialogDescription>
+                              Yacht booking details. Fill the required fields and click save.
+                            </DialogDescription>
+                          </DialogHeader>
+                          <div className="grid gap-4">
+                            <div className="grid gap-2">
+                              <Label htmlFor="fleet">Fleet</Label>
+                              <Input id="fleet" name="fleet" defaultValue={yacht.name} disabled />
+                            </div>
+                            <div className="grid gap-2">
+                              <Label htmlFor="name">Name</Label>
+                              <Input id="name" name="name" placeholder="Enter Name" />
+                            </div>
+                            <div className="grid gap-2">
+                              <Label htmlFor="phone">Phone Number</Label>
+                              <Input id="phone" name="phone"placeholder="Enter Phone Number" />
+                            </div>
+                            <div className="grid gap-2">
+                              <Label htmlFor="email">Email</Label>
+                              <Input type="email" id="email" name="email" placeholder="Enter Email" />
+                            </div>
+                            <div className="grid gap-2">
+                              <Label htmlFor="message">Message</Label>
+                              <Input id="message" name="message" placeholder="Enter Message"/>
+                            </div>
+                          </div>
+                          <DialogFooter>
+                            <DialogClose asChild>
+                              <Button variant="outline">Cancel</Button>
+                            </DialogClose>
+                            <Button type="submit">Submit</Button>
+                          </DialogFooter>
+                        </DialogContent>
+                      </form>
+                    </Dialog>
                   </div>
                   <Button
                     className="rounded-none text-white cursor-pointer transition w-full h-[40px] md:h-[55px] text-[18px] md:text-[25px]"

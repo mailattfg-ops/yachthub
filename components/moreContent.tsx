@@ -73,11 +73,11 @@ export default function MoreContent() {
                             <div className="absolute bottom-0 w-full text-left text-white pb-4" style={{ background: `${yacht.gradient}` }}>
                                 <div className="w-full flex items-center justify-between w-full">
                                     <div className="w-full grid items-center gap-2 md:gap-2 text-sm opacity-90  p-3">
-                                        <div className="w-full grid items-center">
-                                            <p className="text-[29px] md:text-[36px] lg:text-[54px] font-semibold">
+                                        <div className="w-full grid items-center gap-4">
+                                            <p className="text-[29px] md:text-[36px] lg:text-[54px] font-semibold leading-[100%]">
                                                 {yacht.text}
                                             </p>
-                                            <span className="text-[15px] flex">
+                                            <span className="text-[15px] flex gap-2 ite ms-center">
                                                 <MapPin /> {yacht.subtext}
                                             </span>
                                         </div>
@@ -94,7 +94,7 @@ export default function MoreContent() {
             </section>
             {/* FAQ */}
             <section className="w-full pb-8 px-6 md:px-12 md:pb-10 ">
-                <h2 className="w-full font-[Absans] text-[23px] md:text-[29px] lg:text-[49.03px] mb-5 text-center lg:text-start">Frequently Asked Questions</h2>
+                <h2 className="w-full font-[Absans] text-[23px] md:text-[29px] lg:text-[49.03px] text-center lg:text-start">Frequently Asked Questions</h2>
                 <div className="flex gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10 pt-8 justify-end">
                     <div className="w-full lg:w-[80%]">
                         <Accordion
