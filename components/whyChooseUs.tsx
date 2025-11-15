@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
         Why Should You Choose Us?
       </h2>
 
-      <div className="grid lg:flex md:flex-wrap justify-center items-center items-start divide-y lg:divide-x divide-gray-500 mb-10">
+      <div className="grid lg:flex md:flex-wrap justify-center items-center items-start divide-y divide-x-0 lg:divide-y-0 lg:divide-x divide-gray-500 mb-10">
         {features.map((f, index) => (
           <div
             key={index}
