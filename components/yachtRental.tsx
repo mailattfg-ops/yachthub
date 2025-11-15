@@ -46,7 +46,7 @@ export default function YachtRental() {
                   src="/assets/staff.png"
                   alt={"User Image"}
                   width={90}
-                  height={90}
+                  priority height={90}
                   className="w-[90px] h-[90px] object-cover group-hover:scale-101 transition-transform duration-500 rounded-[100%]"
                 />
                 <div className="grid gap-0 items-center ">
@@ -71,7 +71,7 @@ export default function YachtRental() {
                 alt={"User Image"}
                 width={90}
                 height={90}
-                className="w-[90px] h-[90px] object-cover group-hover:scale-101 transition-transform duration-500 rounded-[100%]"
+                priority className="w-[90px] h-[90px] object-cover group-hover:scale-101 transition-transform duration-500 rounded-[100%]"
               />
               <div className="grid gap-0 items-center ">
                 <p className="font-semibold text-[29.53px] leading-[35.43px] tracking-[-1.18px] text-left">Leah Andrews</p>
@@ -122,7 +122,7 @@ export default function YachtRental() {
                   alt={"image"}
                   width={900}
                   height={500}
-                  className="w-full h-full object-cover group-hover:scale-101 transition-transform duration-500"
+                  priority className="w-full h-full object-cover group-hover:scale-101 transition-transform duration-500"
                 />
                 {/* Overlay Gradient */}
                 <div className=" bg-gradient-to-t from-black/80 to-transparent"></div>

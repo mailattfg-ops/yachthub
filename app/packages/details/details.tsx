@@ -49,6 +49,8 @@ export default function BlogDetailsClient() {
             alt="Yacht image"
             width={1200}
             height={100}
+            priority 
+            quality={80}
             className="w-full object-cover"
           />
         </section>
@@ -63,6 +65,8 @@ export default function BlogDetailsClient() {
                   alt={`Yacht image ${i + 1}`}
                   width={200}
                   height={100}
+                  priority 
+                  quality={80}
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -100,6 +104,8 @@ export default function BlogDetailsClient() {
                   src="/assets/people.svg"
                   alt="People"
                   width={26}
+                  priority 
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">Upto 8</span>
@@ -117,6 +123,8 @@ export default function BlogDetailsClient() {
                   src="/assets/bath.svg"
                   alt="Bath"
                   width={26}
+                  priority 
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Baths</span>
@@ -134,6 +142,8 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
+                  priority 
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Beds</span>
@@ -151,6 +161,8 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
+                  priority 
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Crew</span>
@@ -163,6 +175,8 @@ export default function BlogDetailsClient() {
                   src="/assets/people.svg"
                   alt="People"
                   width={26}
+                  priority 
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">Upto 8</span>
@@ -180,6 +194,8 @@ export default function BlogDetailsClient() {
                   src="/assets/bath.svg"
                   alt="Bath"
                   width={26}
+                  priority             
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Baths</span>
@@ -197,6 +213,8 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
+                  priority 
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Beds</span>
@@ -214,6 +232,8 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
+                  priority 
+                  quality={80}
                   height={26}
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Crew</span>

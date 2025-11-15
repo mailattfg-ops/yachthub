@@ -110,6 +110,8 @@ export default function BlogDetailsClient() {
                   alt="Yacht image"
                   width={1200}
                   height={100}
+                  priority 
+                  quality={80}
                   className="w-full object-cover"
                 />
               </section>

@@ -35,6 +35,8 @@ export default function BlogPage() {
             alt="Yacht image"
             width={1200}
             height={100}
+            priority
+            quality={80}
             className="w-full object-cover"
           />
         </section>
@@ -87,6 +89,8 @@ export default function BlogPage() {
                     src={"/assets/staff.png"}
                     alt={"logo"}
                     fill
+                    priority 
+                    quality={80}
                     className="object-fill"
                   />
                 </div>

@@ -27,7 +27,7 @@ const nextConfig = {
         hostname: "*.supabase.co",
       },
     ],
-    // domains: ["wehimnsgdutpyzcfewil.supabase.co"],
+    formats: ["image/avif", "image/webp"],
   }
 };
 

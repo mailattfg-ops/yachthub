@@ -103,6 +103,8 @@ export default function FleetSection() {
               alt={yacht.name || "image"}
               width={900}
               height={500}
+              priority
+              quality={80}
               className="w-full h-[300px] object-cover group-hover:scale-101 transition-transform duration-500"
             />
             <div className="absolute top-0 left-0 bg-[#000] text-white text-sm font-semibold h-[55px] flex items-center justify-center px-2 mb-[-20]">
@@ -128,6 +130,8 @@ export default function FleetSection() {
                         src="/assets/people.svg"
                         alt="People"
                         width={16}
+                        priority 
+                        quality={80}
                         height={16}
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.capacity}</span>
@@ -145,6 +149,8 @@ export default function FleetSection() {
                         src="/assets/bath.svg"
                         alt="Bath"
                         width={16}
+                        priority 
+                        quality={80}
                         height={16}
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.baths}</span>
@@ -162,6 +168,8 @@ export default function FleetSection() {
                         src="/assets/bed.svg"
                         alt="Bed"
                         width={16}
+                        priority 
+                        quality={80}
                         height={16}
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.beds}</span>
@@ -179,6 +187,8 @@ export default function FleetSection() {
                         src="/assets/bed.svg"
                         alt="Bed"
                         width={16}
+                        priority 
+                        quality={80}
                         height={16}
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.crew}</span>

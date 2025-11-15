@@ -64,7 +64,7 @@ export default function MoreContent() {
                                 alt={"image"}
                                 width={900}
                                 height={500}
-                                className="w-full h-full object-cover group-hover:scale-101 transition-transform duration-500"
+                                priority className="w-full h-full object-cover group-hover:scale-101 transition-transform duration-500"
                             />
                             {/* Overlay Gradient */}
                             <div className=" bg-gradient-to-t from-black/80 to-transparent"></div>

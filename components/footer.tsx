@@ -46,7 +46,7 @@ export default function Footer() {
                       src="/assets/dribbble.svg"
                       alt="Dribbble"
                       width={28}
-                      height={28}
+                      priority height={28}
                     />
                   </div>
                   <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
@@ -54,7 +54,7 @@ export default function Footer() {
                       src="/assets/linkedin.svg"
                       alt="LinkedIn"
                       width={28}
-                      height={28}
+                      priority height={28}
                     />
                   </div>
                   <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
@@ -62,7 +62,7 @@ export default function Footer() {
                       src="/assets/instagram.svg"
                       alt="Instagram"
                       width={28}
-                      height={28}
+                      priority height={28}
                     />
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export default function Footer() {
                       src="/assets/dribbble.svg"
                       alt="Dribbble"
                       width={28}
-                      height={28}
+                      priority height={28}
                     />
                   </div>
                   <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
@@ -105,7 +105,7 @@ export default function Footer() {
                       src="/assets/linkedin.svg"
                       alt="LinkedIn"
                       width={28}
-                      height={28}
+                      priority height={28}
                     />
                   </div>
                   <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
@@ -113,7 +113,7 @@ export default function Footer() {
                       src="/assets/instagram.svg"
                       alt="Instagram"
                       width={28}
-                      height={28}
+                      priority height={28}
                     />
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function Footer() {
                 alt="Yacht Hub Dubai"
                 width={300}
                 height={100}
-                className="object-contain !w-[225px]"
+                priority className="object-contain !w-[225px]"
               />
               <p className="text-[8.45px] md:text-sm text-gray-500 mt-3">
                 © 2025, Yacht Hub Dubai. All Rights Reserved.

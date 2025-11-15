@@ -13,6 +13,7 @@ function book() {
         alt="Yacht CTA"
         fill
         className="object-cover object-bottom"
+        quality={80}
         priority
       />
 

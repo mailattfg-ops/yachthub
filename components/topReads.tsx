@@ -67,7 +67,7 @@ function topReads() {
                     src={blog.img || ""}
                     alt={blog.title || "logo"}
                     fill
-                    className="object-fill"
+                    priority className="object-fill"
                   />
                 </div>
 

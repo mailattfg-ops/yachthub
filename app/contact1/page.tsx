@@ -106,6 +106,8 @@ export default function BlogPage() {
                         src={blog.img || "/assets/blog-card.jpg"}
                         alt="Yacht in Dubai"
                         fill
+                        priority 
+                        quality={80}
                         className="object-cover"
                       />
                     </div>

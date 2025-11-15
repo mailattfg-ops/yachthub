@@ -38,7 +38,7 @@ export default function NewsLetter() {
                 src="/assets/dribbble.svg"
                 alt="Dribbble"
                 width={30}
-                height={30}
+                priority height={30}
               />
             </div>
             <div className="w-9 h-9 flex items-center justify-center ">
@@ -46,7 +46,7 @@ export default function NewsLetter() {
                 src="/assets/instagram.svg"
                 alt="Instagram"
                 width={30}
-                height={30}
+                priority height={30}
               />
             </div>
             <div className="w-9 h-9 flex items-center justify-center">
@@ -54,7 +54,7 @@ export default function NewsLetter() {
                 src="/assets/linkedin.svg"
                 alt="LinkedIn"
                 width={30}
-                height={30}
+                priority height={30}
               />
             </div>
           </div>

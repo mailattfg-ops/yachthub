@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center w-[153px] md:w-[151px] lg:w-[189px]">
           <Link href='/'>
-            <Image src="/assets/Group-dark.svg" alt="Logo" width={186} height={48} />
+            <Image src="/assets/Group-dark.svg" alt="Logo" width={186} height={48} priority />
           </Link>
         </div>
         <span className="hidden lg:inline-block"

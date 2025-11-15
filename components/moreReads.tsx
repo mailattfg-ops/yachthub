@@ -68,7 +68,7 @@ function MoreReads() {
                       src={blog.img || ""}
                       alt={blog.title || "image"}
                       fill
-                      className="object-fill"
+                      priority className="object-fill"
                     />
                   </div>
 
