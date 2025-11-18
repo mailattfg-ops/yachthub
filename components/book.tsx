@@ -14,7 +14,7 @@ function book() {
         fill
         className="object-cover object-bottom"
         quality={80}
-        priority
+        loading="lazy"
       />
 
       {/* Text Content */}

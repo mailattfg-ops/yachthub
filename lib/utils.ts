@@ -1,49 +1,66 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-import axios from "axios";
-import Papa from "papaparse";
+// lib/utils.ts
+import { createClient } from "@supabase/supabase-js";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
 
-const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQgqRTZETFKFiJV-TyoBX43wInYGAcqqvK1Rf3yX2dEcKJuvOv_HCMqMKjLk0m7wvbWTBLSs6887Jwf/pub?gid=0&single=true&output=csv";
-export async function fetchAllBlogs(slug:any) {
-  try {
-    const response = await axios.get(`${GOOGLE_SHEET_CSV_URL}&t=${Date.now()}`, {
-  responseType: "text",
-});
-    console.log("adasdasd",response)
-    const parsed = Papa.parse(response.data, {
-      header: true,
-      skipEmptyLines: true,
-    });
-    console.log("parsed",parsed)
-    console.log("parsed",parsed)
-    const blogs = parsed.data
-      // .filter((row:any) => row.slug && row.title)
-      .map((row:any) => ({
-        slug: row.slug || "",
-        img: row.img || "",
-        title: row.title || "",
-        date: row.date || "",
-        desc: row.desc || "",
-      }));
-      console.log("blogs",blogs);
-      
-    return blogs;
-  } catch (error) {
-    console.error("Error fetching blog posts:", error);
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/** Fetch all blogs */
+export async function fetchAllBlogs() {
+  const { data, error } = await supabase.from("blog").select("*");
+  console.log("asdj", data);
+
+  if (error) {
+    console.error("Error fetching all blogs:", error);
     return [];
   }
+
+  return data;
 }
-export async function fetchBlogBySlug(slug:any) {
-  try {
-    const blogs = await fetchAllBlogs(slug);
-    return blogs || null;
-  } catch (err) {
-    console.error("Error fetching blog by slug:", err);
+
+export async function fetchBlogBySlug(slug: string) {
+  const cleanSlug = slug.toString().trim().toLowerCase();
+
+  const { data, error } = await supabase
+    .from("blog")
+    .select("*")
+    .eq("slug", cleanSlug)
+    .single();
+
+  return data || null;
+}
+
+export async function fetchAllPackages() {
+  const { data, error } = await supabase.from("packages").select("*");
+
+  if (error) {
+    console.error("Error fetching packages:", error);
+    return [];
+  }
+
+  return data;
+}
+
+export async function fetchPackageBySlug(slug: string) {
+  if (!slug) return null;
+
+  const { data, error } = await supabase
+    .from("packages")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error) {
+    console.error("Error fetching package:", error);
     return null;
   }
+
+  return data;
 }

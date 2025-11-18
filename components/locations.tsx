@@ -45,7 +45,9 @@ const MarqueeItem = ({ data }: { data: any }) => (
       alt={data.title || "image"}
       width={280}
       height={350}
-      priority className="object-cover w-full h-[350px]"
+      className="object-cover w-full h-[350px]"
+      loading="lazy"
+      quality={80}
     />
 
     {/* Overlay gradient */}

@@ -24,8 +24,8 @@ export default function BlogCard({ title, desc, date, img }: BlogCardProps) {
           alt={title || "image" }
           width={500}
           height={300}
-          priority 
           quality={80}
+          loading="lazy"
           className="object-cover w-full h-full"
         />
       </div>

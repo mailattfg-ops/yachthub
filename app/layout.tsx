@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yacht Hub Dubai",
-  description: "Experience Luxury on the Dubai Marina Waters",
+  title: "Yacht Rental Dubai | Luxury Yachts for Private Cruises & Events",
+  description: "Experience the best Yacht Rental Dubai services with luxury yachts perfect for private cruises, celebrations, and unforgettable sea adventures",
   icons: {
     icon: "/favicon.ico",
     apple: [

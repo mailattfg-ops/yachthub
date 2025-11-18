@@ -29,7 +29,9 @@ export default function WhyChooseUs() {
               alt={f.title || "image"}
               width={36}
               height={36}
-              priority className="mb-2"
+              className="mb-2"
+              loading="lazy"
+                      quality={80}
             />
             <div className="flex flex-col gap-4 leading-tight w-[223px]">
               <span className="font-[CalSans] grid text-gray-900 text-[33.95px]">

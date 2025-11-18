@@ -8,7 +8,6 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
@@ -20,17 +19,27 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 font-absans flex items-center justify-between 
-              px-2 lg:px-4 py-6 text-white bg-transparent">
+    <nav
+      className="absolute top-0 left-0 w-full z-50 font-absans flex items-center justify-between 
+              px-2 lg:px-4 py-6 text-white bg-transparent"
+    >
       {/* Left section: Logo + Nav Links */}
       <div className="flex items-center">
         {/* Logo */}
         <div className="flex items-center w-[153px] md:w-[151px] lg:w-[189px]">
-          <Link href='/'>
-            <Image src="/assets/Group-dark.svg" alt="Logo" width={186} height={48} priority />
+          <Link href="/">
+            <Image
+              src="/assets/Group-dark.svg"
+              alt="Logo"
+              width={186}
+              height={48}
+              priority
+              quality={80}
+            />
           </Link>
         </div>
-        <span className="hidden lg:inline-block"
+        <span
+          className="hidden lg:inline-block"
           style={{
             width: "2px",
             height: "40px",
@@ -50,9 +59,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-
       </div>
-
 
       {/* Mobile Menu */}
       {menuOpen && (
@@ -76,10 +83,18 @@ export default function Navbar() {
       {/* Right section: Buttons */}
       <div className="flex items-center md:space-x-4">
         {/* WhatsApp Button */}
-        <Button className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
-                  rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4">
-          <img src="/assets/whatsapp.svg" className="w-[13] h-[13] md:w-5 md:h-5" alt="image" />
-          <span className="text-[9px] md:text-[13px] lg:text-[13px] ">Book on WhatsApp</span>
+        <Button
+          className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
+                  rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4"
+        >
+          <img
+            src="/assets/whatsapp.svg"
+            className="w-[13] h-[13] md:w-5 md:h-5"
+            alt="image"
+          />
+          <span className="text-[9px] md:text-[13px] lg:text-[13px] ">
+            Book on WhatsApp
+          </span>
         </Button>
 
         {/* Get Started Button */}
@@ -90,12 +105,14 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden p-2 rounded-md focus:outline-none"
         >
-          {menuOpen ? <X size={28} color="black" /> : <Menu size={28} color="black" />}
+          {menuOpen ? (
+            <X size={28} color="black" />
+          ) : (
+            <Menu size={28} color="black" />
+          )}
         </button>
       </div>
       {/* Hamburger Icon (Mobile) */}
-
     </nav>
-
   );
 }

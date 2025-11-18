@@ -130,9 +130,10 @@ export default function FleetSection() {
                         src="/assets/people.svg"
                         alt="People"
                         width={16}
-                        priority 
+                        
                         quality={80}
                         height={16}
+                        loading="lazy"
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.capacity}</span>
                     </div>{" "}
@@ -149,9 +150,10 @@ export default function FleetSection() {
                         src="/assets/bath.svg"
                         alt="Bath"
                         width={16}
-                        priority 
+                   
                         quality={80}
                         height={16}
+                        loading="lazy"
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.baths}</span>
                     </div>{" "}
@@ -168,9 +170,10 @@ export default function FleetSection() {
                         src="/assets/bed.svg"
                         alt="Bed"
                         width={16}
-                        priority 
+                      
                         quality={80}
                         height={16}
+                        loading="lazy"
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.beds}</span>
                     </div>
@@ -189,6 +192,7 @@ export default function FleetSection() {
                         width={16}
                         priority 
                         quality={80}
+                        
                         height={16}
                       />
                       <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.crew}</span>
