@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { FormEvent, useEffect, useState } from "react";
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 import {
   Dialog,
   DialogClose,
@@ -13,15 +13,36 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function FleetSection() {
   const [data, setData] = useState<any[]>([]);
   const [limit, setLimit] = useState(false);
   const [loading, setLoading] = useState(true);
   const [supabase, setSupabase] = useState<any>(null);
+  function sendYachtToWhatsApp(yacht: any) {
+    const phoneNumber = "919745004161";
+
+    const msg = `
+*New Yacht Booking Request*
+-----------------------------------
+*Yacht:* ${yacht.name}
+*Price:* ${yacht.price}
+-----------------------------------
+Please contact me with more details.
+  `;
+
+    const encoded = encodeURIComponent(msg);
+    const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
+    window.open(url, "_blank");
+  }
+
+  function openTelegramChat() {
+    const telegramURL = "https://t.me/telmeasif";
+    window.open(telegramURL, "_blank");
+  }
 
   const fetchPost = async () => {
     const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -32,14 +53,12 @@ export default function FleetSection() {
     setSupabase(supabase);
     console.log("Supabase client:", supabase);
 
-    const { data, error } = await supabase
-      .from("fleet")
-      .select("*");
+    const { data, error } = await supabase.from("fleet").select("*");
 
     if (error) {
       console.error("Error fetching post:", error);
     } else {
-      console.log("data", data);
+      console.log("dataaaaaaaaaaaaaaa", data);
       setData(data);
       setLoading(false);
     }
@@ -73,9 +92,7 @@ export default function FleetSection() {
       return;
     }
 
-    const { error } = await supabase
-      .from("email_book")
-      .insert([data]);
+    const { error } = await supabase.from("email_book").insert([data]);
 
     if (error) {
       console.error(error);
@@ -96,11 +113,14 @@ export default function FleetSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10">
         {data.map((yacht, index) => (
-          <div key={index} className="relative overflow-hidden shadow-lg group w-full">
+          <div
+            key={index}
+            className="relative overflow-hidden shadow-lg group w-full"
+          >
             {/* Yacht Image */}
             <Image
               src={yacht.image}
-              alt={yacht.name || "image"}
+              alt={yacht.alt_tab || "Image"}
               width={900}
               height={500}
               priority
@@ -130,12 +150,13 @@ export default function FleetSection() {
                         src="/assets/people.svg"
                         alt="People"
                         width={16}
-                        
                         quality={80}
                         height={16}
                         loading="lazy"
                       />
-                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.capacity}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">
+                        {yacht.capacity}
+                      </span>
                     </div>{" "}
                     <span
                       style={{
@@ -150,12 +171,13 @@ export default function FleetSection() {
                         src="/assets/bath.svg"
                         alt="Bath"
                         width={16}
-                   
                         quality={80}
                         height={16}
                         loading="lazy"
                       />
-                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.baths}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">
+                        {yacht.baths}
+                      </span>
                     </div>{" "}
                     <span
                       style={{
@@ -170,12 +192,13 @@ export default function FleetSection() {
                         src="/assets/bed.svg"
                         alt="Bed"
                         width={16}
-                      
                         quality={80}
                         height={16}
                         loading="lazy"
                       />
-                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.beds}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">
+                        {yacht.beds}
+                      </span>
                     </div>
                     <span
                       style={{
@@ -190,12 +213,13 @@ export default function FleetSection() {
                         src="/assets/bed.svg"
                         alt="Bed"
                         width={16}
-                        priority 
+                        priority
                         quality={80}
-                        
                         height={16}
                       />
-                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">{yacht.crew}</span>
+                      <span className="text-[7.79px] md:text-[8.64px] lg:text-[12.69px] mt-1 text-black">
+                        {yacht.crew}
+                      </span>
                     </div>
                   </div>
                   <div className="flex justify-between">
@@ -210,16 +234,20 @@ export default function FleetSection() {
                         letterSpacing: "0%",
                         textAlign: "center",
                       }}
+                      onClick={openTelegramChat}
                     >
                       Book On
-                      <img src="/assets/telegram.svg" className="w-6 h-6" alt="image" />
+                      <img
+                        src="/assets/telegram.svg"
+                        className="w-6 h-6"
+                        alt="image"
+                      />
                     </Button>
-
                     <Dialog>
-                      <DialogTrigger className="rounded-none text-white cursor-pointer transition flex items-center justify-center gap-2 flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
+                      <DialogTrigger
+                        className="rounded-none text-white cursor-pointer transition flex items-center justify-center gap-2 flex-1 h-[40px] md:h-[55px] text-[18px] md:text-[25px]"
                         style={{
                           backgroundColor: "#373737",
-                          // height: "",
                           fontFamily: "Absans",
                           fontWeight: 400,
                           lineHeight: "100%",
@@ -228,46 +256,108 @@ export default function FleetSection() {
                         }}
                       >
                         Book On
-                        <img src="/assets/mail.svg" className="w-6 h-6" alt="image" />
+                        <img
+                          src="/assets/mail.svg"
+                          className="w-6 h-6"
+                          alt="mail"
+                        />
                       </DialogTrigger>
-                      <form onSubmit={(e) => handleBookingSubmit(e)}>
-                        <DialogContent className="sm:max-w-[425px]">
-                          <DialogHeader>
-                            <DialogTitle><h2 className="text-[24px] text-[#000]">Book Now!</h2></DialogTitle>
-                            <DialogDescription>
-                              Yacht booking details. Fill the required fields and click save.
-                            </DialogDescription>
-                          </DialogHeader>
-                          <div className="grid gap-4">
+
+                      <DialogContent
+                        className="bg-[#00313F] text-white p-6 rounded-xl max-w-lg max-h-[90vh] w-[90%] overflow-y-auto 
+    scrollbar-hide 
+    mx-auto"
+                        style={{ border: "none" }}
+                      >
+                        <DialogHeader>
+                          <DialogTitle className="text-center text-2xl font-bold">
+                            Book Now!
+                          </DialogTitle>
+                          <DialogDescription className="text-center text-gray-300">
+                            Fill in the details below to submit your yacht
+                            booking request.
+                          </DialogDescription>
+                        </DialogHeader>
+
+                        <form
+                          className="grid gap-4 mt-4"
+                          onSubmit={handleBookingSubmit}
+                        >
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name"
+                            className="p-3 rounded-md bg-white/10 border border-white/20 focus:border-white outline-none"
+                          />
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Your Email"
+                            className="p-3 rounded-md bg-white/10 border border-white/20 focus:border-white outline-none"
+                          />
+
+                          <input
+                            type="text"
+                            name="phone"
+                            placeholder="Phone Number"
+                            className="p-3 rounded-md bg-white/10 border border-white/20 focus:border-white outline-none"
+                          />
+
+                          <div className="grid grid-cols-2 gap-4">
                             <div className="grid gap-2">
-                              <Label htmlFor="fleet">Fleet</Label>
-                              <Input id="fleet" name="fleet" defaultValue={yacht.name} disabled />
+                              {/* <Label htmlFor="date">Date</Label> */}
+                              <Input
+                                className="p-3 rounded-md bg-white/10 border border-white/20 text-[#879EA5] focus:border-white outline-none"
+                                type="date"
+                                id="date"
+                                name="date"
+                              />
                             </div>
+
                             <div className="grid gap-2">
-                              <Label htmlFor="name">Name</Label>
-                              <Input id="name" name="name" placeholder="Enter Name" />
-                            </div>
-                            <div className="grid gap-2">
-                              <Label htmlFor="phone">Phone Number</Label>
-                              <Input id="phone" name="phone"placeholder="Enter Phone Number" />
-                            </div>
-                            <div className="grid gap-2">
-                              <Label htmlFor="email">Email</Label>
-                              <Input type="email" id="email" name="email" placeholder="Enter Email" />
-                            </div>
-                            <div className="grid gap-2">
-                              <Label htmlFor="message">Message</Label>
-                              <Input id="message" name="message" placeholder="Enter Message"/>
+                              {/* <Label htmlFor="time">Time</Label> */}
+                              <Input
+                                className="p-3 rounded-md bg-white/10 text-[#879EA5] border border-white/20 focus:border-white outline-none"
+                                type="time"
+                                id="time"
+                                name="time"
+                              />
                             </div>
                           </div>
-                          <DialogFooter>
+
+                          <input
+                            type="number"
+                            name="persons"
+                            placeholder="No. of Persons"
+                            className="p-3 rounded-md bg-white/10 border border-white/20 focus:border-white outline-none"
+                          />
+                          <textarea
+                            name="message"
+                            rows={3}
+                            placeholder="Additional Message"
+                            className="p-3 rounded-md bg-white/10 border border-white/20 focus:border-white outline-none"
+                          ></textarea>
+
+                          {/* Buttons */}
+                          <div className="grid grid-cols-2 gap-3 mt-2">
                             <DialogClose asChild>
-                              <Button variant="outline">Cancel</Button>
+                              <button
+                                type="button"
+                                className="bg-white/20 text-white p-3 rounded-md hover:bg-white/30"
+                              >
+                                Cancel
+                              </button>
                             </DialogClose>
-                            <Button type="submit">Submit</Button>
-                          </DialogFooter>
-                        </DialogContent>
-                      </form>
+
+                            <button
+                              type="submit"
+                              className="bg-white text-[#00313F] hover:bg-gray-100 font-medium p-3 rounded-md"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </form>
+                      </DialogContent>
                     </Dialog>
                   </div>
                   <Button
@@ -281,15 +371,20 @@ export default function FleetSection() {
                       letterSpacing: "0%",
                       textAlign: "center",
                     }}
+                    onClick={() => {
+                      sendYachtToWhatsApp(yacht);
+                    }}
                   >
                     Book On
-                    <img src="/assets/whatsapp.svg" className="w-6 h-6" alt="image" />
+                    <img
+                      src="/assets/whatsapp.svg"
+                      className="w-6 h-6"
+                      alt="image"
+                    />
                   </Button>
-
                 </div>
 
                 {/* Price Box (tight fit, no padding) */}
-
               </div>
             </div>
           </div>

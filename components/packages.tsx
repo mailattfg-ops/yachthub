@@ -43,7 +43,7 @@ export default function PackageSection() {
               src={
                 yacht.image || "/assets/package.jpg" || "/assets/package.JPG"
               }
-              alt={"image"}
+              alt={yacht.alt_tab ||"image"}
               width={900}
               height={500}
               loading="lazy"

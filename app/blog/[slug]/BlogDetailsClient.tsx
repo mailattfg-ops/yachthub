@@ -11,7 +11,6 @@ import { useEffect } from "react";
 export default function BlogDetailsClient({ blog, allBlogs }: any) {
   if (!blog) return <p className="text-center py-20">Blog not found</p>;
 
-  // Scroll highlight logic (same as old code)
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("article section");
@@ -44,7 +43,6 @@ export default function BlogDetailsClient({ blog, allBlogs }: any) {
       <Navbar />
 
       <main className="flex flex-col items-center w-full">
-        {/* HEADER SECTION — OLD DESIGN */}
         <section className="w-full bg-white pt-20 mt-12 flex flex-col items-center text-center px-4">
           <h2 className="!font-[CalSans] text-3xl md:text-5xl font-normal text-[#0F172A] max-w-3xl leading-tight">
             {blog.title}
@@ -52,22 +50,18 @@ export default function BlogDetailsClient({ blog, allBlogs }: any) {
           <p className="text-gray-500 mt-3 text-md">{blog.desc}</p>
           <p className="text-md font-semibold mt-2 mb-3">{blog.date}</p>
         </section>
-
-        {/* HERO IMAGE — OLD DESIGN */}
-        <section className="w-full h-[302px] md:h-[392.9px] lg:h-[877px] overflow-hidden">
+        <section className="w-full h-[302px] md:h-[392.9px] lg:h-[877px] overflow-hidden py-4 px-12 items-base">
           <Image
             src={blog.img}
-            alt={blog.title}
+            alt={blog.alt_tab}
             width={1200}
             height={800}
-            className="w-full h-full object-cover"
+            className="w-full"
+            quality={80}
             priority
           />
         </section>
-
-        {/* CONTENT SECTION — OLD DESIGN */}
         <section className="w-full grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-10 text-[#0F172A] px-8 lg:px-12 py-16">
-          {/* SIDEBAR — OLD DESIGN */}
           <aside className="hidden lg:block">
             <div className="sticky top-20">
               <h3 className="!font-[CalSans] text-2xl mb-4">Contents</h3>
@@ -87,8 +81,6 @@ export default function BlogDetailsClient({ blog, allBlogs }: any) {
               </ul>
             </div>
           </aside>
-
-          {/* MAIN ARTICLE CONTENT — OLD DESIGN */}
           <article className="space-y-18 leading-relaxed">
             <section id="intro" className="m-0 mb-8">
               <h2 className="text-4xl mb-2 font-[Absans]">Introduction</h2>
@@ -158,11 +150,7 @@ export default function BlogDetailsClient({ blog, allBlogs }: any) {
             </section>
           </article>
         </section>
-
-        {/* Newsletter */}
         <Newsletter />
-
-        {/* More Reads — NEW FUNCTIONALITY */}
         <MoreReads blogs={allBlogs} currentSlug={blog.slug} />
 
         <Book />

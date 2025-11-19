@@ -20,6 +20,7 @@ export default function BlogPage() {
   useEffect(() => {
     async function load() {
       const data = await fetchAllBlogs();
+      console.log("data",data)
       setPosts(data);
       setLoading(false);
     }
@@ -86,7 +87,7 @@ export default function BlogPage() {
                   <div className="relative w-full h-68">
                     <Image
                       src={featured.img}
-                      alt={featured.title}
+                      alt={featured.alt_tab}
                       fill
                       priority
                       quality={80}

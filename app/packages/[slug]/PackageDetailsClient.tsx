@@ -38,7 +38,7 @@ export default function PackageDetailsClient({ pkg }: any) {
         <section className="w-full h-[264.0487060546875px] md:h-[393px] lg:h-[877px] md:px-8 lg:px-12 flex justify-center overflow-hidden">
           <Image
             src={pkg.img}
-            alt="Yacht image"
+            alt={pkg.alt_tab ||"Yacht image"}
             width={1200}
             height={100}
             quality={80}

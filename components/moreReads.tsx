@@ -9,6 +9,7 @@ interface BlogPost {
   title: string;
   date: string;
   slug: string;
+  alt_tab : string;
 }
 
 interface MoreReadsProps {
@@ -43,7 +44,7 @@ export default function MoreReads({ blogs, currentSlug }: MoreReadsProps) {
               <div className="relative w-1/2">
                 <Image
                   src={blog.img || ""}
-                  alt={blog.title || "image"}
+                  alt={blog.alt_tab || "image"}
                   fill
                   className="object-fill"
                   loading="lazy"
