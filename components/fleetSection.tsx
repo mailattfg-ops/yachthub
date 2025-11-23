@@ -40,7 +40,7 @@ Please contact me with more details.
   }
 
   function openTelegramChat() {
-    const telegramURL = "https://t.me/telmeasif";
+    const telegramURL = "https://t.me/username";
     window.open(telegramURL, "_blank");
   }
 

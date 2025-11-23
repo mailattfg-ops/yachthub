@@ -5,7 +5,11 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Footer() {
-  const [contactOpen, setContactOpen] = useState(false);
+  function openContactPopup() {
+    window.dispatchEvent(new Event("open-contact"));
+  }
+
+
 
   return (
     <>
@@ -91,7 +95,7 @@ export default function Footer() {
                   {/* CONTACT → Opens Popup */}
                   <p
                     className="font-bold text-xl cursor-pointer"
-                    onClick={() => setContactOpen(true)}
+                    onClick={openContactPopup}
                   >
                     CONTACT
                   </p>
@@ -149,48 +153,6 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* CONTACT POPUP */}
-      {contactOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999]">
-          <div className="bg-[#00313F] text-white w-[90%] max-w-lg p-6 rounded-xl shadow-xl relative">
-            <button
-              onClick={() => setContactOpen(false)}
-              className="absolute top-3 right-3 text-white"
-            >
-              ✕
-            </button>
-
-            <h2 className="text-2xl font-bold mb-4 text-center">Contact Us</h2>
-
-            <form className="grid gap-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="p-3 rounded-md bg-white/10 border border-white/20"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="p-3 rounded-md bg-white/10 border border-white/20"
-              />
-              <input
-                type="text"
-                placeholder="Subject"
-                className="p-3 rounded-md bg-white/10 border border-white/20"
-              />
-              <textarea
-                placeholder="Your Message"
-                rows={4}
-                className="p-3 rounded-md bg-white/10 border border-white/20"
-              ></textarea>
-
-              <button className="bg-white text-[#00313F] hover:bg-gray-100 font-medium p-3 rounded-md w-full">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
     </>
   );
 }

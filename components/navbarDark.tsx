@@ -10,13 +10,27 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/packages", label: "Packages" },
     { href: "/about", label: "About" },
     { href: "/blog", label: "Blog" },
-    { href: "#contact", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ];
+
+  function openContactPopup() {
+    window.dispatchEvent(new Event("open-contact"));
+    console.log("clicked")
+  }
+
+  function sendWhatsAppMessage() {
+    const phoneNumber = "919745004161";
+    const message = "Hello there! I would like to book a yacht.";
+    const encodedMessage = encodeURIComponent(message);
+
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+  }
 
   return (
     <nav
@@ -48,32 +62,55 @@ export default function Navbar() {
         ></span>
 
         {/* Nav Links */}
-        <div className="hidden lg:flex md:ml-2  items-center">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="font-[Absans] md:font-[16px] lg:font-[20px] font-normal md:px-1 lg:px-2 py-1 text-[#000] hover:bg-white hover:text-[#00313F] "
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+           <div className="hidden lg:flex md:ml-2 items-center">
+            {navLinks.map((link) =>
+              link.href === "/contact" ? (
+                <p
+                  key={link.label}
+                  onClick={openContactPopup}
+                  className="font-[Absans] md:text-[16px] lg:text-[20px] font-normal md:px-1 lg:px-2 py-1 
+                  text-[#000] hover:text-white hover:bg-[#00313F] cursor-pointer"
+                >
+                  {link.label}
+                </p>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-[Absans] md:text-[16px] lg:text-[20px] font-normal 
+                  md:px-1 lg:px-2 py-1 text-[#000] hover:text-white hover:bg-[#00313F]"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-full left-0 w-full bg-[#00313F] border-t border-white flex flex-col items-center space-y-4 py-6 lg:hidden z-50">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="font-[Absans] font-normal text-lg hover:text-[#00B8D9] transition"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+              link.href === "/contact" ? (
+                <p
+                  key={link.label}
+                  onClick={openContactPopup}
+                  className="font-[Absans] md:text-[16px] lg:text-[20px] font-normal md:px-1 lg:px-2 py-1 
+                  text-white hover:bg-white hover:text-[#00313F] cursor-pointer"
+                >
+                  {link.label}
+                </p>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-[Absans] md:text-[16px] lg:text-[20px] font-normal 
+                  md:px-1 lg:px-2 py-1 text-white hover:bg-white hover:text-[#00313F]"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           <Button className=" md:hidden block bg-white border border-[#000] text-black hover:bg-[#dbdbdb] w-fit h-[45px] cursor-pointer  rounded-none font-medium transition mr-0">
             Download Brochure
           </Button>
@@ -86,6 +123,7 @@ export default function Navbar() {
         <Button
           className="bg-[#02CE1A] hover:bg-[#03a41b] w-[119px] h-[30px] md:w-fit md:h-[45px] 
                   rounded-none text-white cursor-pointer flex items-center md:mr-0 md:mr-4"
+                   onClick={sendWhatsAppMessage}
         >
           <img
             src="/assets/whatsapp.svg"
