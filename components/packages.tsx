@@ -17,6 +17,7 @@ export default function PackageSection() {
  useEffect(()=>{
   async function loadPackages() {
     const data = await fetchAllPackages();
+    console.log("IOmgae",data)
     setPackages(data);
     setLoading(false);
     
@@ -41,7 +42,7 @@ export default function PackageSection() {
             {/* Yacht Image */}
             <Image
               src={
-                yacht.image || "/assets/package.jpg" || "/assets/package.JPG"
+                yacht.img || "/assets/package.jpg" || "/assets/package.JPG"
               }
               alt={yacht.alt_tab ||"image"}
               width={900}
