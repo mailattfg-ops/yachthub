@@ -24,7 +24,7 @@ export default function HomePage() {
       <MoreContent />
       <Book />
       <div className="w-full">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14454.218270649995!2d55.12843605038564!3d25.083082194550077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6dff36c51cdb%3A0x7419c48e6f2373f4!2sXclusive%20Yachts%20Marina%20Promenade%20Kiosk!5e0!3m2!1sen!2sin!4v1763119849993!5m2!1sen!2sin" width="100%" height="450" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28908.383815816876!2d55.139899400000004!3d25.083305449999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b5402c126e3%3A0xb9511e6655c46d7c!2sDubai%20Marina%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1763542807127!5m2!1sen!2sin" width="100%" height="450" loading="lazy"></iframe>
       </div>
       <Footer />
     </main>

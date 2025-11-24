@@ -1,20 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/navbarDark";
-import { FaWhatsapp } from "react-icons/fa";
-import Newsletter from "@/components/newsLetter";
-import moreReads from "@/components/moreReads";
 import Footer from "@/components/footer";
 import Book from "@/components/book";
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { useParams } from "next/navigation";
-import { fetchBlogBySlug } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
-import MoreReads from "@/components/moreReads";
+
 
 interface BlogPost {
   img?: string;
@@ -25,7 +16,8 @@ interface BlogPost {
 
 }
 
-export default function BlogDetailsClient() {
+export default function PackageDetailsClient({ pkg }: any) {
+   if (!pkg) return <p className="text-center py-20">Package not found</p>;
 
   return (
     <>
@@ -37,7 +29,7 @@ export default function BlogDetailsClient() {
         <section className="w-full bg-white pt-20 px-8 lg:px-12 pb-4 md:pb-8 mt-12 flex flex-col items-center text-center">
 
           <h2 className="w-full !font-[CalSans] text-[35px] md:text-[44.8px] lg:text-[64px] text-[#0F172A] text-left leading-tight">
-            Coastal Expedition
+            {pkg.text}
           </h2>
           {/* <p className="text-gray-500 mt-3 text-md">{blog.desc}</p>
           <p className="text-md font-semibold mt-2 mb-3">{blog.date}</p> */}
@@ -45,12 +37,12 @@ export default function BlogDetailsClient() {
         {/* Hero Image */}
         <section className="w-full h-[264.0487060546875px] md:h-[393px] lg:h-[877px] md:px-8 lg:px-12 flex justify-center overflow-hidden">
           <Image
-            src={"/assets/package1.jpg"}
-            alt="Yacht image"
+            src={pkg.img}
+            alt={pkg.alt_tab ||"Yacht image"}
             width={1200}
             height={100}
-            priority 
             quality={80}
+            loading="lazy"
             className="w-full object-cover"
           />
         </section>
@@ -65,8 +57,8 @@ export default function BlogDetailsClient() {
                   alt={`Yacht image ${i + 1}`}
                   width={200}
                   height={100}
-                  priority 
                   quality={80}
+                  loading="lazy"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -80,9 +72,7 @@ export default function BlogDetailsClient() {
           <div className="w-full md:w-3/5">
             {/* <h2 className="text-4xl mb-2 font-[Absans]">Introduction</h2> */}
             <p className="!font-[Geist] text-[16px] lg:text-[24px]">
-              Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
-              Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.
-              Nam pulvinar blandit velit, id condimentum diam faucibus at. Aliquam lacus nisi, sollicitudin at nisi nec, fermentum congue felis. Quisque mauris dolor, fringilla sed tincidunt ac, finibus non odio. Sed vitae mauris nec ante pretium finibus. Donec nisl neque, pharetra ac elit eu, faucibus aliquam ligula. Nullam dictu
+             {pkg.subtext}
             </p>
           </div>
           {/* Sidebar */}
@@ -104,9 +94,9 @@ export default function BlogDetailsClient() {
                   src="/assets/people.svg"
                   alt="People"
                   width={26}
-                  priority 
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">Upto 8</span>
               </div>{" "}
@@ -123,9 +113,9 @@ export default function BlogDetailsClient() {
                   src="/assets/bath.svg"
                   alt="Bath"
                   width={26}
-                  priority 
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Baths</span>
               </div>{" "}
@@ -142,9 +132,9 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
-                  priority 
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Beds</span>
               </div>
@@ -161,9 +151,9 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
-                  priority 
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Crew</span>
               </div>
@@ -175,9 +165,9 @@ export default function BlogDetailsClient() {
                   src="/assets/people.svg"
                   alt="People"
                   width={26}
-                  priority 
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">Upto 8</span>
               </div>{" "}
@@ -193,10 +183,10 @@ export default function BlogDetailsClient() {
                 <Image
                   src="/assets/bath.svg"
                   alt="Bath"
-                  width={26}
-                  priority             
+                  width={26}            
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Baths</span>
               </div>{" "}
@@ -213,9 +203,9 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
-                  priority 
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Beds</span>
               </div>
@@ -232,9 +222,9 @@ export default function BlogDetailsClient() {
                   src="/assets/bed.svg"
                   alt="Bed"
                   width={26}
-                  priority 
                   quality={80}
                   height={26}
+                  loading="lazy"
                 />
                 <span className="text-[14.2px] md:text-[10px] lg:text-[22px] mt-1 text-black">4 Crew</span>
               </div>
@@ -256,9 +246,6 @@ export default function BlogDetailsClient() {
             </Button>
           </div>
         </section>
-
-
-        {/* Book */}
         <Book />
       </main>
       <Footer />

@@ -39,9 +39,9 @@ export default function CharterTypes() {
               src={type.image}
               alt="logo"
               fill
-              priority 
               quality={80}
               className="object-cover object-center"
+              loading="lazy"
             />
 
             {/* Overlay */}

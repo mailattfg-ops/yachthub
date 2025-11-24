@@ -81,7 +81,9 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
             {Array.from({ length: 6 }).map((blog, i) => (
               // <Link key={i} href={`/blog/details?slug=${i}`}>
-              <div className="relative flex h-[300px] lg:h-[545px] xl:h-[545px]
+              <div 
+              key={i}
+              className="relative flex h-[300px] lg:h-[545px] xl:h-[545px]
                   hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
                 {/* Left Image */}
                 <div className="relative w-full">

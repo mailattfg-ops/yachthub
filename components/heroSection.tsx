@@ -16,6 +16,30 @@ export default function HeroSection() {
   const [howMany, setHowMany] = useState("");
   const [yachtType, setYachtType] = useState("");
 
+  function sendBookingToWhatsApp() {
+  const phoneNumber = "919745004161";
+
+  if (!when || !howMany || !yachtType) {
+    alert("Please fill all fields before booking.");
+    return;
+  }
+
+  const msg = `
+*New Yacht Booking Request*
+-----------------------------------
+*Date:* ${when}
+*Guests:* ${howMany}
+*Yacht Type:* ${yachtType}
+-----------------------------------
+Please confirm availability.
+  `;
+
+  const encoded = encodeURIComponent(msg);
+  const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
+  window.open(url, "_blank");
+}
+
+
 
   return (
     <section className="relative w-full h-[101vh] pt-20 flex flex-col justify-around md:justify-between text-white overflow-hidden">
@@ -186,6 +210,7 @@ export default function HeroSection() {
 
           {/* Blue Button */}
           <Button
+          onClick={sendBookingToWhatsApp}
             className="rounded-none text-white cursor-pointer transition w-full md:w-[205px] h-[47px] md:h-[80px] text-[18px] md:text-[14px]"
             style={{
               backgroundColor: "#2530FF",

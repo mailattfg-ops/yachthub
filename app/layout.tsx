@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ContactProvider } from "./providers";
+import ContactModal from "@/components/ContactModal";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yacht Hub Dubai",
-  description: "Experience Luxury on the Dubai Marina Waters",
+  title: "Yacht Rental Dubai | Luxury Yachts for Private Cruises & Events",
+  description:
+    "Experience the best Yacht Rental Dubai services with luxury yachts perfect for private cruises, celebrations, and unforgettable sea adventures",
   icons: {
     icon: "/favicon.ico",
     apple: [
@@ -34,8 +39,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+      <ContactProvider>
+          {children}
+          <ContactModal />
+        </ContactProvider>
       </body>
     </html>
   );

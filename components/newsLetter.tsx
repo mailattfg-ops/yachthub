@@ -6,7 +6,6 @@ export default function NewsLetter() {
   return (
     <section className="w-full border-b border-gray-200 px-6 pb-8 md:px-18 lg:px-22 bg-white">
       <div className="w-full max-w-[1324px] grid md:grid-cols-[70%_30%] lg:gap-10 items-start">
-        
         {/* ===== Newsletter Section ===== */}
         <div>
           <h3 className="w-full font-[Absans] text-center md:text-left text-[28.8px] md:text-[28.8px] lg:text-[48px] mb-5">
@@ -27,7 +26,9 @@ export default function NewsLetter() {
 
         {/* ===== Follow Us Section ===== */}
         <div className="lg:border-l border-gray-200 md:pl-8">
-          <h3 className="font-[Absans] md:text-left text-[28.8px] md:text-[28.8px] lg:text-[48px] mt-6 md:mt-0 mb-3">Follow us</h3>
+          <h3 className="font-[Absans] md:text-left text-[28.8px] md:text-[28.8px] lg:text-[48px] mt-6 md:mt-0 mb-3">
+            Follow us
+          </h3>
           <p className="text-lg  mb-5 leading-relaxed">
             Follow us on social media to get latest informations
           </p>
@@ -38,7 +39,10 @@ export default function NewsLetter() {
                 src="/assets/dribbble.svg"
                 alt="Dribbble"
                 width={30}
-                priority height={30}
+          
+                height={30}
+                loading="lazy"
+                quality={80}
               />
             </div>
             <div className="w-9 h-9 flex items-center justify-center ">
@@ -46,7 +50,10 @@ export default function NewsLetter() {
                 src="/assets/instagram.svg"
                 alt="Instagram"
                 width={30}
-                priority height={30}
+         
+                height={30}
+                loading="lazy"
+                quality={80}
               />
             </div>
             <div className="w-9 h-9 flex items-center justify-center">
@@ -54,7 +61,10 @@ export default function NewsLetter() {
                 src="/assets/linkedin.svg"
                 alt="LinkedIn"
                 width={30}
-                priority height={30}
+ 
+                height={30}
+                loading="lazy"
+                quality={80}
               />
             </div>
           </div>
