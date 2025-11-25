@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from 'react'; // <-- 1. Import useState
 
 interface BlogPost {
   slug: string;
@@ -9,14 +10,15 @@ interface BlogPost {
   img: string;
   desc: string;
   date: string;
-  alt_tab : string;
+  alt_tab: string;
 }
 
 export default function TopReads({ blogs }: { blogs: BlogPost[] }) {
   if (!blogs || blogs.length === 0) return null;
 
-  const topFour = blogs.slice(0, 4);
-  console.log(topFour,"dd")
+  const [showAll, setShowAll] = useState(false);
+  const displayedBlogs = showAll ? blogs : blogs.slice(0, 4);
+  const hasMoreThanFour = blogs.length > 4;
 
   return (
     <>
@@ -26,7 +28,7 @@ export default function TopReads({ blogs }: { blogs: BlogPost[] }) {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {topFour.map((blog, i) => (
+          {displayedBlogs.map((blog, i) => (
             <Link key={i} href={`/blog/${blog.slug}`}>
               <div className="flex h-[232px] lg:h-[500px] xl:h-[475px] bg-white border border-gray-200 cursor-pointer 
                 hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
@@ -65,13 +67,16 @@ export default function TopReads({ blogs }: { blogs: BlogPost[] }) {
           ))}
         </div>
 
-        <div className="flex justify-center mt-4">
-          <Link href="/blog">
-            <button className="font-[Absans] mt-4 px-8 py-3 border cursor-pointer border-[#A3A3A3] text-[#000] hover:bg-black hover:text-white transition-all">
+        {!showAll && hasMoreThanFour && (
+          <div className="flex justify-center mt-4">
+            <button
+                onClick={() => setShowAll(true)}
+                className="font-[Absans] mt-4 px-8 py-3 border cursor-pointer border-[#A3A3A3] text-[#000] hover:bg-black hover:text-white transition-all"
+            >
               View all Blogs
             </button>
-          </Link>
-        </div>
+          </div>
+        )}
       </section>
     </>
   );
