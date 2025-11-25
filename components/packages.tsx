@@ -25,6 +25,16 @@ export default function PackageSection() {
   loadPackages();
  },[]);
 
+ const gradients = [
+  "linear-gradient(180deg, rgba(159, 59, 57, 0) 0%, #F17508 75.81%)",
+  "linear-gradient(180deg, rgba(28, 136, 183, 0) 0%, #1C88B7 75.81%)",
+  "linear-gradient(180deg, rgba(37, 48, 255, 0) 0%, #2530FF 75.81%)",
+  "linear-gradient(180deg, rgba(37, 48, 255, 0) 0%, #A825FF 75.81%)",
+  "linear-gradient(180deg, rgba(4, 49, 42, 0) 0%, #04312A 75.81%)",
+  "linear-gradient(180deg, rgba(159, 59, 57, 0) 0%, #9F3B39 75.81%)",
+];
+
+
  if (loading) return <p className="text-center py-20">Loading...</p>;
 
   return (
@@ -34,7 +44,9 @@ export default function PackageSection() {
       </h2> */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 max-w-8xl mx-auto px-8 md:px-4 lg:px-10">
-        {packages.map((yacht) => (
+        {packages.map((yacht,index) =>{
+          const gradient = gradients[index % gradients.length]; 
+        return (
           <div
             key={yacht.slug}
             className="relative w-[494px] h-[400px] md:h-[615px] overflow-hidden shadow-lg group w-full"
@@ -63,7 +75,7 @@ export default function PackageSection() {
             {/* Bottom Info */}
             <div
               className="absolute bottom-0 w-full text-left text-white"
-              style={{ background: `${yacht.gradient}` }}
+              style={{ background: gradient }}
             >
               <div className="w-full flex items-center justify-between w-full">
                 <div className="w-full grid items-center gap-2 md:gap-2 text-sm opacity-90  p-3">
@@ -94,7 +106,7 @@ export default function PackageSection() {
               </div>
             </div>
           </div>
-        ))}
+        )})}
       </div>
     </section>
   );
