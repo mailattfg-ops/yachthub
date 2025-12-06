@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/navbarDark";
 import Footer from "@/components/footer";
 
 export default function NotFoundPage() {
   return (
     <>
-      <Navbar />
+      <Navbar/>
 
       <main className="flex flex-col items-center text-center mt-28 px-6">
         <h1 className="font-[CalSans] text-5xl text-[#0F172A]">
