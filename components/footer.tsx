@@ -148,7 +148,7 @@ export default function Footer() {
                   © 2025, Yacht Hub Dubai. All Rights Reserved.
                 </p>
                 <p className="text-[8.45px] md:text-sm text-gray-500 mt-1">
-                  Designed and Developed by{" "}
+                  Design and Developed by{" "}
                   <Link
                     href="https://www.thinkforgeglobal.com/"
                     target="_blank"
