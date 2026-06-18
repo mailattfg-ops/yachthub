@@ -32,6 +32,8 @@ export const metadata: Metadata = {
   },
 };
 
+import SupabaseKeepAlive from "@/components/SupabaseKeepAlive";
+
 export default function RootLayout({
   children,
 }: {
@@ -45,6 +47,7 @@ export default function RootLayout({
       <ContactProvider>
           {children}
           <ContactModal />
+          <SupabaseKeepAlive />
         </ContactProvider>
       </body>
     </html>
