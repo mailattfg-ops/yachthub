@@ -27,7 +27,7 @@ export default function BlogPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center">
-        <p>Loading blogs...</p>
+        <p>Loading blogs....</p>
       </div>
     );
   }
